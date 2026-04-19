@@ -1,5 +1,5 @@
 name: Check code quality
-on: 
+on:
   pull_request:
     branches: [main, dev]
 concurrency:
@@ -18,7 +18,7 @@ jobs:
           version: 10
       - name: Setup Node.js
         uses: actions/setup-node@v6
-        with: 
+        with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
       - name: Install Dependencies

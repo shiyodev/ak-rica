@@ -43,6 +43,14 @@ jobs:
         if: steps.gamedata.outcome == 'failure' || steps.assets.outcome == 'failure'
         run: exit 1
 
+      #region Sync Artifacts
+      - name: Process Sync Artifacts
+        id: sync_artifacts
+        run: |
+          echo "gamedata_hash=$(git -C data/ArknightsGamedata rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+          echo "assets_hash=$(git -C data/ArknightsAssets2 rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+          rm -rf data/*/.git
+
       #region Setup
       - name: Install pnpm
         uses: pnpm/action-setup@v5
@@ -58,7 +66,7 @@ jobs:
 
       #region Run Scripts
       - name: Run Update Scripts
-        id: update-scripts
+        id: update_scripts
         run: |
           git fetch origin feat/data-sync --depth=1
           git reset --hard origin/feat/data-sync
@@ -73,15 +81,15 @@ jobs:
 
       #region Push Changes
       - name: Push Changes
-        if: steps.update-scripts.outputs.has_changes == 'true'
+        if: steps.update_scripts.outputs.has_changes == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          COMMIT_MSG="Update $(date +'%Y-%m-%d')
+          COMMIT_MSG="chore(sync): update game resources $(date +'%Y-%m-%d')
 
-          Gamedata: ArknightsAssets/ArknightsGamedata@$(git -C data/ArknightsGamedata rev-parse --short HEAD)
-          Assets: ArknightsAssets/ArknightsAssets2@$(git -C data/ArknightsAssets2 rev-parse --short HEAD)"
+          Gamedata: ArknightsAssets/ArknightsGamedata@${{ steps.sync_artifacts.outputs.gamedata_hash }}
+          Assets: ArknightsAssets/ArknightsAssets2@${{ steps.sync_artifacts.outputs.assets_hash }}"
 
           git commit -m "$COMMIT_MSG"
           git push origin cloudflare --force

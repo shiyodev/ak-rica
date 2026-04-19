@@ -1,6 +1,6 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
-import { gamedata } from './utils/data_store'
 import path, { dirname } from 'node:path'
+import { gamedata } from './utils/data_store'
 import { processResult } from './utils/results'
 
 const outFile = path.resolve('src/data', 'buffs.gen.json')

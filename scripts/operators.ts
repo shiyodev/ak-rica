@@ -1,6 +1,6 @@
+import { writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { gamedata } from './utils/data_store'
-import { writeFileSync } from 'node:fs'
 import { processResult } from './utils/results'
 
 const outFile = path.resolve('src/data', 'operators.gen.json')

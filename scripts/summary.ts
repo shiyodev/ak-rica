@@ -1,7 +1,7 @@
-import * as core from '@actions/core'
-import { ScriptResultSchema } from '@shared/schemas'
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import path from 'node:path'
+import * as core from '@actions/core'
+import { ScriptResultSchema } from '@shared/schemas'
 
 const srcDir = path.resolve('scripts/.output')
 

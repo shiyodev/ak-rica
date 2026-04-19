@@ -1,8 +1,5 @@
 name: Update game resources
 on:
-  push:
-    branches:
-      - feat/data-sync
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"
@@ -10,6 +7,8 @@ jobs:
   update-resources:
     name: Update game resources
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v6

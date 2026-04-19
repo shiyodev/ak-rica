@@ -1,0 +1,85 @@
+name: Update game resources
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+jobs:
+  update-resources:
+    name: Update game resources
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v6
+        with:
+          ref: cloudflare
+
+      #region Gamedata Sync
+      - name: Clone Gamedata
+        uses: actions/checkout@v6
+        id: gamedata
+        continue-on-error: true
+        with:
+          repository: ArknightsAssets/ArknightsGamedata
+          path: data/ArknightsGamedata
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            en/gamedata/excel/building_data.json
+            en/gamedata/excel/character_table.json
+
+      #region Assets Sync
+      - name: Clone Assets
+        uses: actions/checkout@v6
+        id: assets
+        continue-on-error: true
+        with:
+          repository: ArknightsAssets/ArknightsAssets2
+          ref: en
+          path: data/ArknightsAssets2
+          sparse-checkout: assets/dyn/arts/charavatars
+
+      - name: Exit on Failed Sync
+        if: steps.gamedata.outcome == 'failure' || steps.assets.outcome == 'failure'
+        run: exit 1
+
+      #region Setup
+      - name: Install pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: 10
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      #region Run Scripts
+      - name: Run Update Scripts
+        id: update-scripts
+        run: |
+          git fetch origin main --depth=1
+          git reset --hard origin/main
+          pnpm update:all
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      #region Push Changes
+      - name: Push Changes
+        if: steps.update-scripts.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          COMMIT_MSG="Update $(date +'%Y-%m-%d')
+
+          Gamedata: ArknightsAssets/ArknightsGamedata@$(git -C data/ArknightsGamedata rev-parse --short HEAD)
+          Assets: ArknightsAssets/ArknightsAssets2@$(git -C data/ArknightsAssets2 rev-parse --short HEAD)"
+
+          git commit -m "$COMMIT_MSG"
+          git push origin cloudflare --force

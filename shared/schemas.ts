@@ -1,5 +1,11 @@
 import { z } from 'zod'
 
+export type CharacterTable = z.infer<typeof CharacterTableSchema>
+export const CharacterTableSchema = z.record(
+  z.string(),
+  z.object({ name: z.string() }),
+)
+
 export type BuildingData = z.infer<typeof BuildingDataSchema>
 export const BuildingDataSchema = z.object({
   chars: z.record(

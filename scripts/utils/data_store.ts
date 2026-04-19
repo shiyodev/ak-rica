@@ -1,4 +1,4 @@
-import { BuildingDataSchema, } from '@shared/schemas'
+import { BuildingDataSchema, CharacterTableSchema } from '@shared/schemas'
 import { readFileSync } from 'node:fs'
 import path from 'node:path'
 
@@ -10,6 +10,10 @@ function loadJSON(filename: string) {
 
 export const gamedata = {
   fetch: {
+    characterTable() {
+      const raw = loadJSON('character_table.json')
+      return CharacterTableSchema.parse(raw)
+    },
     buildingData() {
       const raw = loadJSON('building_data.json')
       return BuildingDataSchema.parse(raw)

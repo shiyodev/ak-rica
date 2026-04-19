@@ -14,8 +14,9 @@
     "lint": "biome lint",
     "check": "biome check",
     "sync:data": "git fetch origin cloudflare --depth=1 && git checkout cloudflare -- data && git restore --staged data",
-    "update:all": "pnpm update:avatars",
-    "update:avatars": "pnpm tsx ./scripts/avatars.ts"
+    "update:all": "pnpm \"/^update:(?!all)/\" --parallel",
+    "update:avatars": "pnpm tsx ./scripts/avatars.ts",
+    "update:operators": "pnpm tsx ./scripts/operators.ts"
   },
   "dependencies": {
     "@faker-js/faker": "^10.3.0",

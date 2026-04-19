@@ -68,8 +68,8 @@ jobs:
       - name: Run Update Scripts
         id: update_scripts
         run: |
-          git fetch origin feat/data-sync --depth=1
-          git reset --hard origin/feat/data-sync
+          git fetch origin main --depth=1
+          git reset --hard origin/main
           pnpm update:all
 
           git add -A

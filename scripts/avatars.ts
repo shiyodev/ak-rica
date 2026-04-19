@@ -38,5 +38,6 @@ try {
 
 processResult(
   'Processed operator avatars',
-  { isValue: readdirSync(destDir).length, target: characterIDs.length }
+  { isValue: readdirSync(destDir).length, target: characterIDs.length },
+  import.meta.filename,
 )

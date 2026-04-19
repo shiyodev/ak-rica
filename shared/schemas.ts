@@ -44,3 +44,11 @@ export const BuildingDataSchema = z.object({
     }),
   ), //* Those are all properties. not all of them might be needed
 })
+
+export type ScriptResult = z.infer<typeof ScriptResultSchema>
+export const ScriptResultSchema = z.object({
+  status: z.string(),
+  progress: z.string(),
+  diffToTarget: z.number(),
+  script: z.string(),
+})

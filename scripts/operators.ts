@@ -22,5 +22,6 @@ writeFileSync(outFile, JSON.stringify(data, null, 2))
 
 processResult(
   'Processed operators with base skills',
-  { isValue: Object.values(data).length, target: Object.values(chars).length }
+  { isValue: Object.values(data).length, target: Object.values(chars).length },
+  import.meta.filename,
 )

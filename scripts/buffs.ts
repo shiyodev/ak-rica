@@ -9,4 +9,8 @@ const buffs = gamedata.fetch.buildingData().buffs
 mkdirSync(dirname(outFile), { recursive: true })
 writeFileSync(outFile, JSON.stringify(buffs, null, 2))
 
-processResult('Base skills processed', { isValue: Object.values(buffs).length })
+processResult(
+  'Base skills processed',
+  { isValue: Object.values(buffs).length },
+  import.meta.filename,
+)

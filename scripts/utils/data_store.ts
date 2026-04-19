@@ -1,0 +1,21 @@
+import { BuildingDataSchema, } from '@shared/schemas'
+import { readFileSync } from 'node:fs'
+import path from 'node:path'
+
+const srcDir = path.resolve('data/ArknightsGamedata/en/gamedata/excel')
+
+function loadJSON(filename: string) {
+  return JSON.parse(readFileSync(path.join(srcDir, filename), 'utf-8'))
+}
+
+export const gamedata = {
+  fetch: {
+    buildingData() {
+      const raw = loadJSON('building_data.json')
+      return BuildingDataSchema.parse(raw)
+    },
+    characterIDs() {
+      return Object.keys(gamedata.fetch.buildingData().chars)
+    },
+  },
+}

@@ -14,7 +14,8 @@
     "lint": "biome lint",
     "check": "biome check",
     "sync:data": "git fetch origin cloudflare --depth=1 && git checkout cloudflare -- data && git restore --staged data",
-    "update:all": "echo updating..."
+    "update:all": "pnpm update:avatars",
+    "update:avatars": "pnpm tsx ./scripts/avatars.ts"
   },
   "dependencies": {
     "@faker-js/faker": "^10.3.0",
@@ -34,7 +35,8 @@
     "react-dom": "^19.2.0",
     "tailwind-merge": "^3.0.2",
     "tailwindcss": "^4.1.18",
-    "tw-animate-css": "^1.3.6"
+    "tw-animate-css": "^1.3.6",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.5",

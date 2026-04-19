@@ -16,7 +16,8 @@
     "sync:data": "git fetch origin cloudflare --depth=1 && git checkout cloudflare -- data && git restore --staged data",
     "update:all": "pnpm \"/^update:(?!all)/\" --parallel",
     "update:avatars": "pnpm tsx ./scripts/avatars.ts",
-    "update:operators": "pnpm tsx ./scripts/operators.ts"
+    "update:operators": "pnpm tsx ./scripts/operators.ts",
+    "update:buffs": "pnpm tsx ./scripts/buffs.ts"
   },
   "dependencies": {
     "@faker-js/faker": "^10.3.0",

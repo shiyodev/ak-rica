@@ -1,6 +1,7 @@
 import path from 'node:path'
 import { gamedata } from './utils/data_store'
 import { writeFileSync } from 'node:fs'
+import { processResult } from './utils/results'
 
 const outFile = path.resolve('src/data', 'operators.gen.json')
 
@@ -18,3 +19,8 @@ for (const [id, { buffChar }] of Object.entries(chars)) {
 
 // Write JSON
 writeFileSync(outFile, JSON.stringify(data, null, 2))
+
+processResult(
+  'Processed operators with base skills',
+  { isValue: Object.values(data).length, target: Object.values(chars).length }
+)

@@ -13,6 +13,7 @@
     "format": "biome format",
     "lint": "biome lint",
     "check": "biome check",
+    "sync:data": "git fetch origin cloudflare --depth=1 && git checkout cloudflare -- data && git restore --staged data",
     "update:all": "echo updating..."
   },
   "dependencies": {

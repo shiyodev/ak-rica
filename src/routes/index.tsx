@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-
+// TODO: Rework
 export const Route = createFileRoute('/')({ component: App })
 
 function App() {

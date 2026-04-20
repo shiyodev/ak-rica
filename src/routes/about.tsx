@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-
+// TODO: Delete
 export const Route = createFileRoute('/about')({
   component: About,
 })

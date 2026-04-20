@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-
+// TODO: Delete
 export type Person = {
   id: number
   firstName: string

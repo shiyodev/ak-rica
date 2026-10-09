@@ -72,7 +72,7 @@ jobs:
         run: |
           pnpm update:all
 
-          git add -f public/img/avatars
+          git add -f src/assets
           git add -f src/data
 
           if git diff --cached --quiet; then

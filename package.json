@@ -9,7 +9,12 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "update:all": "pnpm run \"/^update:(?!all)/\" --parallel && pnpm generate:summary",
+    "update:avatars": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/avatars.ts",
+    "update:operators": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/operators.ts",
+    "update:buffs": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/buffs.ts",
+    "generate:summary": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/utils/summary.ts"
   },
   "dependencies": {
     "react": "^19.3.0",

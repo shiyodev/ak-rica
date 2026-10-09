@@ -42,11 +42,16 @@ jobs:
         run: exit 1
 
       #region Sync Artifacts
-      - name: Process Sync Artifacts
+      - name: Process Fetched Resources
         id: sync_artifacts
         run: |
           echo "gamedata_hash=$(git -C tmp/gamedata rev-parse --short HEAD)" >> $GITHUB_OUTPUT
           echo "assets_hash=$(git -C tmp/assets rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+          mv tmp/gamedata/en/gamedata/excel/* tmp/gamedata/
+          rm -rf tmp/gamedata/en
+          mv tmp/assets/avatars/* tmp/assets/
+          rm -rf tmp/assets/avatars
 
       #region Setup
       - name: Install pnpm

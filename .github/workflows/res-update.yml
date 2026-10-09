@@ -34,6 +34,7 @@ jobs:
         with:
           repository: PuppiizSunniiz/Arknight-Images
           path: tmp/assets
+          sparse-checkout-cone-mode: false
           sparse-checkout: avatars
 
       - name: Exit on Failed Sync

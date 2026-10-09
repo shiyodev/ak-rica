@@ -2,7 +2,7 @@ name: Update game resources
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: '0 0 * * *'
 jobs:
   update-resources:
     name: Update game resources
@@ -35,7 +35,9 @@ jobs:
           repository: PuppiizSunniiz/Arknight-Images
           path: tmp/assets
           sparse-checkout-cone-mode: false
-          sparse-checkout: avatars
+          sparse-checkout: |
+            avatars
+            ui/infrastructure/skill
 
       - name: Exit on Failed Sync
         if: steps.gamedata.outcome == 'failure' || steps.assets.outcome == 'failure'
@@ -48,10 +50,10 @@ jobs:
           echo "gamedata_hash=$(git -C tmp/gamedata rev-parse --short HEAD)" >> $GITHUB_OUTPUT
           echo "assets_hash=$(git -C tmp/assets rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
-          mv tmp/gamedata/en/gamedata/excel/* tmp/gamedata/
-          rm -rf tmp/gamedata/en
-          mv tmp/assets/avatars/* tmp/assets/
-          rm -rf tmp/assets/avatars
+          mkdir -p tmp/assets/skills
+          mv tmp/gamedata/en/gamedata/excel/*     tmp/gamedata/
+          mv tmp/assets/ui/infrastructure/skill/* tmp/assets/skills/
+          rm -rf tmp/gamedata/en tmp/assets/ui
 
       #region Setup
       - name: Install pnpm

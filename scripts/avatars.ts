@@ -4,7 +4,7 @@ import path from 'node:path'
 import { gamedata } from './utils/data-store'
 import { processResult } from './utils/results'
 
-const srcDir = path.resolve('tmp/assets')
+const srcDir = path.resolve('tmp/assets/avatars')
 const destDir = path.resolve('src/assets/avatars')
 
 const characterIDs = gamedata.fetch.characterIDs()

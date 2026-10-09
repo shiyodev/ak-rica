@@ -25,5 +25,10 @@ export const gamedata = {
       const data = gamedata.fetch.buildingData()
       return Object.keys(data.chars)
     },
+    /** Returns all unique buff icon IDs. */
+    buffIconIDs() {
+      const data = gamedata.fetch.buildingData().buffs
+      return [...new Set(Object.values(data).map((buff) => buff.skillIcon))]
+    },
   },
 }

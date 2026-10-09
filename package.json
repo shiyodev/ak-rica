@@ -14,6 +14,7 @@
     "update:avatars": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/avatars.ts",
     "update:operators": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/operators.ts",
     "update:buffs": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/buffs.ts",
+    "update:icons": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/icons.ts",
     "generate:summary": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/utils/summary.ts"
   },
   "dependencies": {

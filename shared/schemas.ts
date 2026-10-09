@@ -11,6 +11,7 @@ export const BuildingDataSchema = z.object({
   chars: z.record(
     z.string(),
     z.object({
+      charId: z.string(),
       buffChar: z.array(
         z.object({
           buffData: z

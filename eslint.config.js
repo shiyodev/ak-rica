@@ -29,10 +29,7 @@ export default defineConfig([
   /* Build Environment Config */
   {
     files: ['scripts/**/*.ts', 'shared/**/*.ts', 'vite.config.ts'],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommendedTypeChecked,
-    ],
+    extends: [js.configs.recommended, tseslint.configs.recommendedTypeChecked],
     languageOptions: {
       globals: globals.node,
       parserOptions: {

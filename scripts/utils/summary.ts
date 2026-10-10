@@ -15,14 +15,11 @@ if (!existsSync(srcDir)) {
 // Write table body
 const resultFiles = readdirSync(srcDir)
 const tableBody = resultFiles.map((file) => {
-  const raw = JSON.parse(readFileSync(path.join(srcDir, file), 'utf-8')) as unknown
+  const raw = JSON.parse(
+    readFileSync(path.join(srcDir, file), 'utf-8'),
+  ) as unknown
   const result = ScriptResultSchema.parse(raw)
-  return [
-    result.status,
-    result.progress,
-    result.diff.toString(),
-    result.script,
-  ]
+  return [result.status, result.progress, result.diff.toString(), result.script]
 })
 
 // Create table

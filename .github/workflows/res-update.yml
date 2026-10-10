@@ -1,4 +1,4 @@
-name: Update game resources
+name: Update Resources
 on:
   workflow_dispatch:
   schedule:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v6
 
-      #region Gamedata Sync
+      #region Gamedata
       - name: Fetch Gamedata
         uses: actions/checkout@v6
         id: gamedata
@@ -26,7 +26,7 @@ jobs:
             en/gamedata/excel/building_data.json
             en/gamedata/excel/character_table.json
 
-      #region Assets Sync
+      #region Assets
       - name: Fetch Assets
         uses: actions/checkout@v6
         id: assets
@@ -43,8 +43,8 @@ jobs:
         if: steps.gamedata.outcome == 'failure' || steps.assets.outcome == 'failure'
         run: exit 1
 
-      #region Sync Artifacts
-      - name: Process Fetched Resources
+      #region Git Artifacts
+      - name: Process Git Artifacts
         id: sync_artifacts
         run: |
           echo "gamedata_hash=$(git -C tmp/gamedata rev-parse --short HEAD)" >> $GITHUB_OUTPUT
@@ -66,14 +66,14 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
-      #region Run Scripts
-      - name: Run Update Scripts
+      #region Scripts
+      - name: Run Scripts
         id: update_scripts
         run: |
           pnpm update:all
 
-          git add -f src/assets
-          git add -f src/data
+          git add src/assets
+          git add src/data
 
           if git diff --cached --quiet; then
             echo "has_changes=false" >> $GITHUB_OUTPUT

@@ -1,29 +1,46 @@
-name: Check code quality
+name: CI
 on:
   pull_request:
-    branches: [main, dev]
+    branches: [main]
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  code-check:
-    name: Format and Lint Check
+  format:
+    name: Format
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v7
-      - name: Install pnpm
+      - name: Setup pnpm
         uses: pnpm/action-setup@v6
-        with:
-          version: 12
       - name: Setup Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
+
       - name: Check code format
         run: pnpm format:check
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v7
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Lint code
         run: pnpm lint
+

@@ -8,7 +8,7 @@ jobs:
     name: Update game resources
     runs-on: ubuntu-latest
     env:
-      BRANCH: "chore/resource-update"
+      BRANCH: 'chore/resource-update'
     permissions:
       contents: write
       pull-requests: write

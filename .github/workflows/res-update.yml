@@ -7,8 +7,11 @@ jobs:
   update-resources:
     name: Update game resources
     runs-on: ubuntu-latest
+    env:
+      BRANCH: "chore/resource-update"
     permissions:
       contents: write
+      pull-requests: write
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v6
@@ -66,6 +69,11 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Create Branch
+        run: |
+          git fetch origin main
+          git checkout -B "${{ env.BRANCH }}" origin/main
+
       #region Scripts
       - name: Run Scripts
         id: update_scripts
@@ -81,17 +89,25 @@ jobs:
             echo "has_changes=true" >> $GITHUB_OUTPUT
           fi
 
-      #region Push Changes
-      - name: Push Changes
+      #region Pull Request
+      - name: Create Pull Request
         if: steps.update_scripts.outputs.has_changes == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          COMMIT_MSG="chore(sync): update game resources $(date +'%Y-%m-%d')
-
-          Gamedata: ArknightsAssets/ArknightsGamedata@${{ steps.sync_artifacts.outputs.gamedata_hash }}
+          TITLE="chore(sync): update game resources $(date +'%Y-%m-%d')"
+          BODY="Gamedata: ArknightsAssets/ArknightsGamedata@${{ steps.sync_artifacts.outputs.gamedata_hash }}
           Assets: PuppiizSunniiz/Arknight-Images@${{ steps.sync_artifacts.outputs.assets_hash }}"
 
-          git commit -m "$COMMIT_MSG"
-          git push
+          git commit -m "$TITLE" -m "$BODY"
+          git push origin "${{ env.BRANCH }}" --force
+
+          if ! gh pr view "${{ env.BRANCH }}" &>/dev/null; then
+            gh pr create -B main -H "${{ env.BRANCH }}" --fill
+          }
+
+          PR_NUMBER=$(gh pr view "${{ env.BRANCH }}" --json number --jq .number)
+          gh pr merge --auto --squash --subject "$TITLE (#$PR_NUMBER)" --body "$BODY"

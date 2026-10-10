@@ -110,4 +110,4 @@ jobs:
           }
 
           PR_NUMBER=$(gh pr view "${{ env.BRANCH }}" --json number --jq .number)
-          gh pr merge --auto --squash --subject "$TITLE (#$PR_NUMBER)" --body "$BODY"
+          gh pr merge --auto --squash --delete-branch --subject "$TITLE (#$PR_NUMBER)" --body "$BODY"

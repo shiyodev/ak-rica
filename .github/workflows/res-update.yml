@@ -107,7 +107,7 @@ jobs:
 
           if ! gh pr view "${{ env.BRANCH }}" &>/dev/null; then
             gh pr create -B main -H "${{ env.BRANCH }}" --fill
-          }
+          fi
 
           PR_NUMBER=$(gh pr view "${{ env.BRANCH }}" --json number --jq .number)
           gh pr merge --auto --squash --delete-branch --subject "$TITLE (#$PR_NUMBER)" --body "$BODY"

@@ -1,0 +1,110 @@
+name: Update Resources
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '01 23 * * *'
+jobs:
+  update:
+    name: Update game resources
+    runs-on: ubuntu-latest
+    env:
+      BRANCH: 'chore/resource-update'
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v6
+
+      #region Gamedata
+      - name: Fetch Gamedata
+        uses: actions/checkout@v6
+        id: gamedata
+        continue-on-error: true
+        with:
+          repository: ArknightsAssets/ArknightsGamedata
+          path: tmp/gamedata
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            en/gamedata/excel/building_data.json
+            en/gamedata/excel/character_table.json
+
+      #region Assets
+      - name: Fetch Assets
+        uses: actions/checkout@v6
+        id: assets
+        continue-on-error: true
+        with:
+          repository: PuppiizSunniiz/Arknight-Images
+          path: tmp/assets
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            avatars
+            ui/infrastructure/skill
+
+      # Status Check
+      - name: Check Fetch Result
+        if: steps.gamedata.outcome == 'failure' || steps.assets.outcome == 'failure'
+        run: exit 1
+
+      #region Artifacts
+      - name: Process Artifacts
+        id: sync_artifacts
+        run: |
+          echo "gamedata_hash=$(git -C tmp/gamedata rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+          echo "assets_hash=$(git -C tmp/assets rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+          mkdir -p tmp/assets/skills
+          mv tmp/gamedata/en/gamedata/excel/*     tmp/gamedata/
+          mv tmp/assets/ui/infrastructure/skill/* tmp/assets/skills/
+          rm -rf tmp/gamedata/en tmp/assets/ui
+
+      #region Setup
+      - name: Install pnpm
+        uses: pnpm/action-setup@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Create Branch
+        run: |
+          git fetch origin main
+          git checkout -B "${{ env.BRANCH }}" origin/main
+
+      #region Scripts
+      - name: Run Scripts
+        id: update_scripts
+        run: |
+          pnpm update:all
+
+          git add src/assets
+          git add src/data
+
+          if git diff --cached --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      #region Pull Request
+      - name: Create Pull Request
+        if: steps.update_scripts.outputs.has_changes == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          TITLE="chore(sync): update game resources $(date +'%Y-%m-%d')"
+          BODY="Gamedata: ArknightsAssets/ArknightsGamedata@${{ steps.sync_artifacts.outputs.gamedata_hash }}
+          Assets: PuppiizSunniiz/Arknight-Images@${{ steps.sync_artifacts.outputs.assets_hash }}"
+
+          git commit -m "$TITLE" -m "$BODY"
+          git push origin "${{ env.BRANCH }}" --force
+
+          gh pr create -B main -H "${{ env.BRANCH }}" --fill \
+            || gh pr edit --title "$TITLE" --body "$BODY"
+
+          PR_NUMBER=$(gh pr view "${{ env.BRANCH }}" --json number --jq .number)
+          gh pr merge --auto --squash --delete-branch --subject "$TITLE (#$PR_NUMBER)" --body "$BODY"

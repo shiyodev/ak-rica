@@ -19,7 +19,7 @@ export function processResult(
 
   // Logic-Flags
   const isSuccess = target === undefined || actual === target
-  const progress = target === undefined ? `${actual}` : `${actual}/${target}`
+  const progress = target === undefined ? `${actual}/ — ` : `${actual}/${target}`
 
   // JSON body
   const result = {

@@ -9,10 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BRANCH: 'chore/resource-update'
-    permissions:
-      contents: write
-      pull-requests: write
-
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v6

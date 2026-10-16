@@ -50,6 +50,6 @@ export type ScriptResult = z.infer<typeof ScriptResultSchema>
 export const ScriptResultSchema = z.object({
   status: z.string(),
   progress: z.string(),
-  diff: z.number(),
+  diff: z.number().or(z.string()),
   script: z.string(),
 })

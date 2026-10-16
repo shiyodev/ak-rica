@@ -19,13 +19,14 @@ export function processResult(
 
   // Logic-Flags
   const isSuccess = target === undefined || actual === target
-  const progress = target === undefined ? `${actual}` : `${actual}/${target}`
+  const progress = target === undefined ? `${actual}/ —` : `${actual}/${target}`
+  const diff = target === undefined ? `—` : target - actual
 
   // JSON body
   const result = {
     status: isSuccess ? '✅' : '❌',
     progress,
-    diff: (target ?? actual) - actual,
+    diff,
     script: base,
   }
 

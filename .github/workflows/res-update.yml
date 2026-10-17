@@ -52,8 +52,8 @@ jobs:
       - name: Process Artifacts
         id: sync_artifacts
         run: |
-          echo "gamedata_hash=$(git -C tmp/gamedata rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-          echo "assets_hash=$(git -C tmp/assets rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+          echo "GAMEDATA_HASH=$(git -C tmp/gamedata rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+          echo "ASSETS_HASH=$(git -C tmp/assets rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
           mkdir -p tmp/assets/skills
           mv tmp/gamedata/en/gamedata/excel/*     tmp/gamedata/
@@ -86,14 +86,14 @@ jobs:
           git add src/data
 
           if git diff --cached --quiet; then
-            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "HAS_CHANGES=false" >> $GITHUB_OUTPUT
           else
-            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "HAS_CHANGES=true" >> $GITHUB_OUTPUT
           fi
 
       #region Pull Request
       - name: Create Pull Request
-        if: steps.update_scripts.outputs.has_changes == 'true'
+        if: steps.update_scripts.outputs.HAS_CHANGES == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -101,8 +101,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           TITLE="chore(sync): update game resources $(date +'%Y-%m-%d')"
-          BODY="Gamedata: ArknightsAssets/ArknightsGamedata@${{ steps.sync_artifacts.outputs.gamedata_hash }}
-          Assets: PuppiizSunniiz/Arknight-Images@${{ steps.sync_artifacts.outputs.assets_hash }}"
+          BODY="Gamedata: ArknightsAssets/ArknightsGamedata@${{ steps.sync_artifacts.outputs.GAMEDATA_HASH }}
+          Assets: PuppiizSunniiz/Arknight-Images@${{ steps.sync_artifacts.outputs.ASSETS_HASH }}"
 
           git commit -m "$TITLE" -m "$BODY"
           git push origin "${{ env.BRANCH }}" --force

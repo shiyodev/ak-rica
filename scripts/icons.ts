@@ -1,8 +1,8 @@
 import { mkdirSync, readdirSync, rmSync } from 'node:fs'
 import { copyFile } from 'node:fs/promises'
 import path from 'node:path'
-import { gamedata } from './utils/data-store'
-import { processResult } from './utils/results'
+import { gamedata } from '@/scripts/utils/data-store'
+import { processResult } from '@/scripts/utils/results'
 
 const srcDir = path.resolve('tmp/assets/skills')
 const destDir = path.resolve('src/assets/skills')

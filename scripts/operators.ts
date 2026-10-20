@@ -1,7 +1,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 import path, { dirname } from 'node:path'
-import { gamedata } from './utils/data-store'
-import { processResult } from './utils/results'
+import { gamedata } from '@/scripts/utils/data-store'
+import { processResult } from '@/scripts/utils/results'
 
 const outFile = path.resolve('src/data', 'operators.gen.json')
 

@@ -5,8 +5,6 @@ import { ScriptResultSchema } from '@/shared/schemas'
 
 const srcDir = path.resolve('tmp/script-results')
 
-// Check script conditions
-if (!process.env.GITHUB_STEP_SUMMARY) process.exit()
 if (!existsSync(srcDir)) {
   console.log('No script results to summerize')
   process.exit()
@@ -40,16 +38,27 @@ const tableBody = resultFiles
     result.script,
   ])
 
-// Create table
-await core.summary
-  .addHeading('Script Results')
-  .addTable([
-    [
-      { data: 'Status', header: true },
-      { data: 'Progress', header: true },
-      { data: 'Missing Items', header: true },
-      { data: 'Script', header: true },
-    ],
-    ...tableBody,
-  ])
-  .write()
+// Print table
+console.table(
+  tableBody.map(([status, progress, diff, script]) => ({
+    Status: status,
+    Progress: progress,
+    'Missing Items': diff,
+    Script: script,
+  })),
+)
+
+// Create GitHub table
+if (process.env.GITHUB_STEP_SUMMARY)
+  await core.summary
+    .addHeading('Script Results')
+    .addTable([
+      [
+        { data: 'Status', header: true },
+        { data: 'Progress', header: true },
+        { data: 'Missing Items', header: true },
+        { data: 'Script', header: true },
+      ],
+      ...tableBody,
+    ])
+    .write()

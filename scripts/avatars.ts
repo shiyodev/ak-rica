@@ -33,3 +33,4 @@ processResult(
   { actual: readdirSync(destDir).length, target: characterIDs.length },
   import.meta.filename,
 )
+// TODO: expected character IDs vs. copied avatar filenames

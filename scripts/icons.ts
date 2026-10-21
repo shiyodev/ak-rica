@@ -31,3 +31,4 @@ processResult(
   { actual: readdirSync(destDir).length, target: iconIDs.length },
   import.meta.filename,
 )
+// TODO: expected buff icon IDs vs. copied icon filenames

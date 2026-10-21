@@ -40,6 +40,44 @@ export const BuildingDataSchema = z.object({
       targets: z.array(z.string()).catch([]),
     }),
   ),
+  rooms: z.record(
+    z.string(),
+    z.object({
+      id: z.string(),
+      name: z.string(),
+      description: z.string().nullable(),
+      defaultPrefabId: z.string(), //* Might be redundant
+      maxCount: z.number(),
+      category: z.string(),
+      size: z.object({
+        row: z.number(),
+        col: z.number(),
+      }),
+      phases: z.array(
+        z.object({
+          electricity: z.number(),
+          maxStationedNum: z.number(),
+          manpowerCost: z.number(), //* Might be redundant
+        }),
+      ),
+    }),
+  ),
+  layouts: z.record(
+    z.string(),
+    z.object({
+      slots: z.record(
+        z.string(),
+        z.object({
+          id: z.string(),
+          provideLabor: z.number(), //* Might be redundant
+          size: z.object({ row: z.number(), col: z.number() }),
+          offset: z.object({ row: z.number(), col: z.number() }),
+          category: z.string(),
+          storeyId: z.string(), //* Might be redundant
+        }),
+      ),
+    }),
+  ),
 })
 
 export type ScriptResult = z.infer<typeof ScriptResultSchema>

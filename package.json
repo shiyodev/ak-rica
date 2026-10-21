@@ -16,6 +16,7 @@
     "update:icons": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/icons.ts",
     "update:operators": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/operators.ts",
     "update:buffs": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/buffs.ts",
+    "update:rooms": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/rooms.ts",
     "generate:summary": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/utils/summary.ts"
   },
   "dependencies": {

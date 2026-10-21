@@ -12,15 +12,33 @@ if (!existsSync(srcDir)) {
   process.exit()
 }
 
+// Set table order
+const tableOrder: Record<string, number> = {
+  '❌': 0,
+  '🔵': 1,
+  '✅': 2,
+}
+
 // Write table body
 const resultFiles = readdirSync(srcDir)
-const tableBody = resultFiles.map((file) => {
-  const raw = JSON.parse(
-    readFileSync(path.join(srcDir, file), 'utf-8'),
-  ) as unknown
-  const result = ScriptResultSchema.parse(raw)
-  return [result.status, result.progress, result.diff.toString(), result.script]
-})
+const tableBody = resultFiles
+  .map((file) => {
+    const raw = JSON.parse(
+      readFileSync(path.join(srcDir, file), 'utf-8'),
+    ) as unknown
+    return ScriptResultSchema.parse(raw)
+  })
+  .sort(
+    (a, b) =>
+      tableOrder[a.status] - tableOrder[b.status] ||
+      a.script.localeCompare(b.script),
+  )
+  .map((result) => [
+    result.status,
+    result.progress,
+    result.diff.toString(),
+    result.script,
+  ])
 
 // Create table
 await core.summary

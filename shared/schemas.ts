@@ -82,7 +82,7 @@ export const BuildingDataSchema = z.object({
 
 export type ScriptResult = z.infer<typeof ScriptResultSchema>
 export const ScriptResultSchema = z.object({
-  status: z.string(),
+  status: z.enum(['🔵', '✅', '❌']),
   progress: z.string(),
   diff: z.number().or(z.string()),
   script: z.string(),

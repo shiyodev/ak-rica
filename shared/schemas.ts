@@ -31,19 +31,15 @@ export const BuildingDataSchema = z.object({
     z.object({
       buffId: z.string(),
       buffName: z.string(),
-      buffIcon: z.string(),
       skillIcon: z.string(),
-      sortId: z.number(),
-      buffColor: z.string(),
-      textColor: z.string(),
-      buffCategory: z.string(),
+      buffCategory: z.string(), //* Might be redundant
       roomType: z.string(),
       description: z.string(),
-      efficiency: z.number(),
-      targetGroupSortId: z.number(),
+      efficiency: z.number(), //* Might be redundant
+      targetGroupSortId: z.number(), //* Might be redundant
       targets: z.array(z.number()).catch([]),
     }),
-  ), //* Those are all properties. not all of them might be needed
+  ),
 })
 
 export type ScriptResult = z.infer<typeof ScriptResultSchema>

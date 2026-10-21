@@ -7,7 +7,7 @@ import { processResult } from '@/scripts/utils/results'
 const srcDir = path.resolve('tmp/assets/avatars')
 const destDir = path.resolve('src/assets/avatars')
 
-const characterIDs = gamedata.fetch.characterIDs()
+const characterIDs = gamedata.get.characterIDs()
 const allAvatars = readdirSync(srcDir)
 
 // Character avatars

@@ -5,8 +5,8 @@ import { processResult } from '@/scripts/utils/results'
 
 const outFile = path.resolve('src/data', 'operators.gen.json')
 
-const chars = gamedata.fetch.buildingData().chars
-const charNameMap = gamedata.fetch.characterTable()
+const { chars } = gamedata.load.buildingData()
+const charNameMap = gamedata.load.characterTable()
 
 // Build raw JSON data
 const data: Record<string, { name: string; buffs: object }> = {}

@@ -4,7 +4,7 @@ import { gamedata } from '@/scripts/utils/data-store'
 import { processResult } from '@/scripts/utils/results'
 
 const outFile = path.resolve('src/data', 'buffs.gen.json')
-const buffs = gamedata.fetch.buildingData().buffs
+const { buffs } = gamedata.load.buildingData()
 
 // Write JSON
 mkdirSync(dirname(outFile), { recursive: true })

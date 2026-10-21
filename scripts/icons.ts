@@ -7,7 +7,7 @@ import { processResult } from '@/scripts/utils/results'
 const srcDir = path.resolve('tmp/assets/skills')
 const destDir = path.resolve('src/assets/skills')
 
-const iconIDs = gamedata.fetch.buffIconIDs()
+const iconIDs = gamedata.get.buffIconIDs()
 const allIcons = readdirSync(srcDir)
 
 // Buff icons

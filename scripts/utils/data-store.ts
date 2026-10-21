@@ -32,5 +32,10 @@ export const gamedata = {
       const data = gamedata.load.buildingData().buffs
       return [...new Set(Object.values(data).map((buff) => buff.skillIcon))]
     },
+    /** Returns all base grid cells. */
+    baseGridCells() {
+      const data = gamedata.load.buildingData().layouts
+      return Object.values(data).flatMap(({ slots }) => Object.values(slots))
+    },
   },
 }

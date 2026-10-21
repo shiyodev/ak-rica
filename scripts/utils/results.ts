@@ -17,14 +17,15 @@ export function processResult(
   const { actual, target } = values
   const { name, base } = path.parse(filePath)
 
-  // Logic-Flags
-  const isSuccess = target === undefined || actual === target
-  const progress = target === undefined ? `${actual}` : `${actual}/${target}`
-  const diff = target === undefined ? `-` : target - actual
+  const hasTarget = target !== undefined
+
+  const status = !hasTarget ? '🔵' : actual === target ? '✅' : '❌'
+  const progress = !hasTarget ? `${actual}` : `${actual}/${target}`
+  const diff = !hasTarget ? `-` : target - actual
 
   // JSON body
   const result = {
-    status: isSuccess ? '✅' : '❌',
+    status,
     progress,
     diff,
     script: base,

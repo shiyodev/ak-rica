@@ -37,7 +37,7 @@ export const BuildingDataSchema = z.object({
       description: z.string(),
       efficiency: z.number(), //* Might be redundant
       targetGroupSortId: z.number(), //* Might be redundant
-      targets: z.array(z.number()).catch([]),
+      targets: z.array(z.string()).catch([]),
     }),
   ),
 })

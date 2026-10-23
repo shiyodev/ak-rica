@@ -11,13 +11,14 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "preview": "vite preview",
-    "update:all": "pnpm run \"/^update:(?!all)/\" --parallel && pnpm generate:summary",
+    "update:all": "pnpm run \"/^update:(?!all)/\" --parallel && pnpm \"/^generate:(?!summary)/\" && pnpm generate:summary",
     "update:avatars": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/avatars.ts",
     "update:icons": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/icons.ts",
     "update:operators": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/operators.ts",
     "update:buffs": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/buffs.ts",
     "update:layout": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/layout.ts",
     "update:rooms": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/rooms.ts",
+    "generate:data-index": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/data-index.ts",
     "generate:summary": "pnpm tsx --tsconfig ./tsconfig.node.json ./scripts/utils/summary.ts"
   },
   "dependencies": {

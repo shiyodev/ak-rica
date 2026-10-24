@@ -178,17 +178,17 @@
     "phases": [
       {
         "electricity": 0,
-        "maxStationedNum": 0,
+        "maxStationedNum": 1,
         "manpowerCost": 0
       },
       {
         "electricity": 0,
-        "maxStationedNum": 0,
+        "maxStationedNum": 1,
         "manpowerCost": 0
       },
       {
         "electricity": 0,
-        "maxStationedNum": 0,
+        "maxStationedNum": 1,
         "manpowerCost": 0
       }
     ]
@@ -315,7 +315,7 @@
     "description": null,
     "defaultPrefabId": "room_elevator_1x2",
     "maxCount": -1,
-    "category": "SPECIAL",
+    "category": "ELEVATOR",
     "size": {
       "row": 2,
       "col": 1
@@ -334,7 +334,7 @@
     "description": null,
     "defaultPrefabId": "room_corridor_2x2",
     "maxCount": -1,
-    "category": "SPECIAL",
+    "category": "CORRIDOR",
     "size": {
       "row": 2,
       "col": 2

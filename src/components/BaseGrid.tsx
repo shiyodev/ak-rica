@@ -25,19 +25,20 @@ export function BaseGrid({
     >
       {layout.map((cell) => {
         const rowPos = rowCount - cell.offset.row - cell.size.row
-        const isSelectable = Object.values(rooms)
-          .find((room) => room.category == cell.category)! // TODO: if checks/test have been made remove Exclamation mark
-          .phases.some((room) => room.maxStationedNum > 0)
-
-        // TODO: Temp
-        let text = (
-          <>
-            {cell.id}
-            <br />
-            {cell.category}
-          </>
+        const roomType = Object.values(rooms).find(
+          (room) => room.category == cell.category,
+        )! // TODO: if checks/test have been made remove Exclamation mark
+        const isSelectable = roomType.phases.some(
+          (room) => room.maxStationedNum > 0,
         )
-        if (!isSelectable) text = <></>
+
+        let room = cell.category
+        if (!isSelectable) room = ''
+        else if (
+          Object.values(rooms).filter((room) => room.category == cell.category)
+            .length == 1
+        )
+          room = roomType.id
 
         return (
           <div
@@ -51,7 +52,7 @@ export function BaseGrid({
               gridRow: `${rowPos + 1} / span ${cell.size.row}`,
             }}
           >
-            {text}
+            {room}
           </div>
         )
       })}

@@ -1,7 +1,6 @@
 [
   {
     "id": "slot_1",
-    "provideLabor": 8,
     "size": {
       "row": 2,
       "col": 1
@@ -10,12 +9,10 @@
       "row": 0,
       "col": 14
     },
-    "category": "ELEVATOR",
-    "storeyId": "B4"
+    "category": "ELEVATOR"
   },
   {
     "id": "slot_2",
-    "provideLabor": 12,
     "size": {
       "row": 2,
       "col": 2
@@ -24,12 +21,10 @@
       "row": 0,
       "col": 15
     },
-    "category": "CORRIDOR",
-    "storeyId": "B4"
+    "category": "CORRIDOR"
   },
   {
     "id": "slot_3",
-    "provideLabor": 6,
     "size": {
       "row": 2,
       "col": 6
@@ -38,12 +33,10 @@
       "row": 0,
       "col": 17
     },
-    "category": "CUSTOM",
-    "storeyId": "B4"
+    "category": "CUSTOM"
   },
   {
     "id": "slot_4",
-    "provideLabor": 8,
     "size": {
       "row": 2,
       "col": 1
@@ -52,12 +45,10 @@
       "row": 0,
       "col": 23
     },
-    "category": "ELEVATOR",
-    "storeyId": "B4"
+    "category": "ELEVATOR"
   },
   {
     "id": "slot_5",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 4
@@ -66,12 +57,10 @@
       "row": 2,
       "col": 2
     },
-    "category": "OUTPUT",
-    "storeyId": "B3"
+    "category": "OUTPUT"
   },
   {
     "id": "slot_6",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 4
@@ -80,12 +69,10 @@
       "row": 2,
       "col": 6
     },
-    "category": "OUTPUT",
-    "storeyId": "B3"
+    "category": "OUTPUT"
   },
   {
     "id": "slot_7",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 4
@@ -94,12 +81,10 @@
       "row": 2,
       "col": 10
     },
-    "category": "OUTPUT",
-    "storeyId": "B3"
+    "category": "OUTPUT"
   },
   {
     "id": "slot_8",
-    "provideLabor": 4,
     "size": {
       "row": 2,
       "col": 1
@@ -108,12 +93,10 @@
       "row": 2,
       "col": 14
     },
-    "category": "ELEVATOR",
-    "storeyId": "B3"
+    "category": "ELEVATOR"
   },
   {
     "id": "slot_9",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 6
@@ -122,12 +105,10 @@
       "row": 2,
       "col": 15
     },
-    "category": "CUSTOM",
-    "storeyId": "B3"
+    "category": "CUSTOM"
   },
   {
     "id": "slot_10",
-    "provideLabor": 8,
     "size": {
       "row": 2,
       "col": 2
@@ -136,12 +117,10 @@
       "row": 2,
       "col": 21
     },
-    "category": "CORRIDOR",
-    "storeyId": "B3"
+    "category": "CORRIDOR"
   },
   {
     "id": "slot_11",
-    "provideLabor": 4,
     "size": {
       "row": 2,
       "col": 1
@@ -150,12 +129,10 @@
       "row": 2,
       "col": 23
     },
-    "category": "ELEVATOR",
-    "storeyId": "B3"
+    "category": "ELEVATOR"
   },
   {
     "id": "slot_12",
-    "provideLabor": 8,
     "size": {
       "row": 2,
       "col": 2
@@ -164,12 +141,10 @@
       "row": 2,
       "col": 24
     },
-    "category": "CORRIDOR",
-    "storeyId": "B3"
+    "category": "CORRIDOR"
   },
   {
     "id": "slot_13",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 4
@@ -178,12 +153,10 @@
       "row": 2,
       "col": 26
     },
-    "category": "FUNCTION",
-    "storeyId": "B3"
+    "category": "FUNCTION"
   },
   {
     "id": "slot_39",
-    "provideLabor": 3,
     "size": {
       "row": 2,
       "col": 2
@@ -192,12 +165,10 @@
       "row": 2,
       "col": 30
     },
-    "category": "CORRIDOR",
-    "storeyId": "B3"
+    "category": "CORRIDOR"
   },
   {
     "id": "slot_40",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 1
@@ -206,12 +177,10 @@
       "row": 2,
       "col": 32
     },
-    "category": "ELEVATOR",
-    "storeyId": "B3"
+    "category": "ELEVATOR"
   },
   {
     "id": "slot_41",
-    "provideLabor": 3,
     "size": {
       "row": 2,
       "col": 6
@@ -220,12 +189,10 @@
       "row": 2,
       "col": 33
     },
-    "category": "CUSTOM_P",
-    "storeyId": "B3"
+    "category": "CUSTOM_P"
   },
   {
     "id": "slot_49",
-    "provideLabor": 4,
     "size": {
       "row": 2,
       "col": 6
@@ -234,12 +201,10 @@
       "row": 2,
       "col": 39
     },
-    "category": "CUSTOM_P",
-    "storeyId": "B3"
+    "category": "CUSTOM_P"
   },
   {
     "id": "slot_14",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 4
@@ -248,12 +213,10 @@
       "row": 4,
       "col": 0
     },
-    "category": "OUTPUT",
-    "storeyId": "B2"
+    "category": "OUTPUT"
   },
   {
     "id": "slot_15",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 4
@@ -262,12 +225,10 @@
       "row": 4,
       "col": 4
     },
-    "category": "OUTPUT",
-    "storeyId": "B2"
+    "category": "OUTPUT"
   },
   {
     "id": "slot_16",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 4
@@ -276,12 +237,10 @@
       "row": 4,
       "col": 8
     },
-    "category": "OUTPUT",
-    "storeyId": "B2"
+    "category": "OUTPUT"
   },
   {
     "id": "slot_17",
-    "provideLabor": 8,
     "size": {
       "row": 2,
       "col": 2
@@ -290,12 +249,10 @@
       "row": 4,
       "col": 12
     },
-    "category": "CORRIDOR",
-    "storeyId": "B2"
+    "category": "CORRIDOR"
   },
   {
     "id": "slot_18",
-    "provideLabor": 4,
     "size": {
       "row": 2,
       "col": 1
@@ -304,12 +261,10 @@
       "row": 4,
       "col": 14
     },
-    "category": "ELEVATOR",
-    "storeyId": "B2"
+    "category": "ELEVATOR"
   },
   {
     "id": "slot_19",
-    "provideLabor": 8,
     "size": {
       "row": 2,
       "col": 2
@@ -318,12 +273,10 @@
       "row": 4,
       "col": 15
     },
-    "category": "CORRIDOR",
-    "storeyId": "B2"
+    "category": "CORRIDOR"
   },
   {
     "id": "slot_20",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 6
@@ -332,12 +285,10 @@
       "row": 4,
       "col": 17
     },
-    "category": "CUSTOM",
-    "storeyId": "B2"
+    "category": "CUSTOM"
   },
   {
     "id": "slot_21",
-    "provideLabor": 4,
     "size": {
       "row": 2,
       "col": 1
@@ -346,12 +297,10 @@
       "row": 4,
       "col": 23
     },
-    "category": "ELEVATOR",
-    "storeyId": "B2"
+    "category": "ELEVATOR"
   },
   {
     "id": "slot_22",
-    "provideLabor": 8,
     "size": {
       "row": 2,
       "col": 2
@@ -360,12 +309,10 @@
       "row": 4,
       "col": 24
     },
-    "category": "CORRIDOR",
-    "storeyId": "B2"
+    "category": "CORRIDOR"
   },
   {
     "id": "slot_23",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 4
@@ -374,12 +321,10 @@
       "row": 4,
       "col": 26
     },
-    "category": "FUNCTION",
-    "storeyId": "B2"
+    "category": "FUNCTION"
   },
   {
     "id": "slot_42",
-    "provideLabor": 3,
     "size": {
       "row": 2,
       "col": 2
@@ -388,12 +333,10 @@
       "row": 4,
       "col": 30
     },
-    "category": "CORRIDOR",
-    "storeyId": "B2"
+    "category": "CORRIDOR"
   },
   {
     "id": "slot_43",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 1
@@ -402,12 +345,10 @@
       "row": 4,
       "col": 32
     },
-    "category": "ELEVATOR",
-    "storeyId": "B2"
+    "category": "ELEVATOR"
   },
   {
     "id": "slot_44",
-    "provideLabor": 3,
     "size": {
       "row": 2,
       "col": 6
@@ -416,12 +357,10 @@
       "row": 4,
       "col": 33
     },
-    "category": "CUSTOM_P",
-    "storeyId": "B2"
+    "category": "CUSTOM_P"
   },
   {
     "id": "slot_50",
-    "provideLabor": 3,
     "size": {
       "row": 2,
       "col": 6
@@ -430,12 +369,10 @@
       "row": 4,
       "col": 39
     },
-    "category": "CUSTOM_P",
-    "storeyId": "B2"
+    "category": "CUSTOM_P"
   },
   {
     "id": "slot_24",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 4
@@ -444,12 +381,10 @@
       "row": 6,
       "col": 2
     },
-    "category": "OUTPUT",
-    "storeyId": "B1"
+    "category": "OUTPUT"
   },
   {
     "id": "slot_25",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 4
@@ -458,12 +393,10 @@
       "row": 6,
       "col": 6
     },
-    "category": "OUTPUT",
-    "storeyId": "B1"
+    "category": "OUTPUT"
   },
   {
     "id": "slot_26",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 4
@@ -472,12 +405,10 @@
       "row": 6,
       "col": 10
     },
-    "category": "OUTPUT",
-    "storeyId": "B1"
+    "category": "OUTPUT"
   },
   {
     "id": "slot_27",
-    "provideLabor": 4,
     "size": {
       "row": 2,
       "col": 1
@@ -486,12 +417,10 @@
       "row": 6,
       "col": 14
     },
-    "category": "ELEVATOR",
-    "storeyId": "B1"
+    "category": "ELEVATOR"
   },
   {
     "id": "slot_28",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 6
@@ -500,12 +429,10 @@
       "row": 6,
       "col": 15
     },
-    "category": "CUSTOM",
-    "storeyId": "B1"
+    "category": "CUSTOM"
   },
   {
     "id": "slot_29",
-    "provideLabor": 8,
     "size": {
       "row": 2,
       "col": 2
@@ -514,12 +441,10 @@
       "row": 6,
       "col": 21
     },
-    "category": "CORRIDOR",
-    "storeyId": "B1"
+    "category": "CORRIDOR"
   },
   {
     "id": "slot_30",
-    "provideLabor": 4,
     "size": {
       "row": 2,
       "col": 1
@@ -528,12 +453,10 @@
       "row": 6,
       "col": 23
     },
-    "category": "ELEVATOR",
-    "storeyId": "B1"
+    "category": "ELEVATOR"
   },
   {
     "id": "slot_31",
-    "provideLabor": 8,
     "size": {
       "row": 2,
       "col": 2
@@ -542,12 +465,10 @@
       "row": 6,
       "col": 24
     },
-    "category": "CORRIDOR",
-    "storeyId": "B1"
+    "category": "CORRIDOR"
   },
   {
     "id": "slot_32",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 4
@@ -556,12 +477,10 @@
       "row": 6,
       "col": 26
     },
-    "category": "FUNCTION",
-    "storeyId": "B1"
+    "category": "FUNCTION"
   },
   {
     "id": "slot_45",
-    "provideLabor": 3,
     "size": {
       "row": 2,
       "col": 2
@@ -570,12 +489,10 @@
       "row": 6,
       "col": 30
     },
-    "category": "CORRIDOR",
-    "storeyId": "B1"
+    "category": "CORRIDOR"
   },
   {
     "id": "slot_46",
-    "provideLabor": 2,
     "size": {
       "row": 2,
       "col": 1
@@ -584,12 +501,10 @@
       "row": 6,
       "col": 32
     },
-    "category": "ELEVATOR",
-    "storeyId": "B1"
+    "category": "ELEVATOR"
   },
   {
     "id": "slot_47",
-    "provideLabor": 3,
     "size": {
       "row": 2,
       "col": 6
@@ -598,12 +513,10 @@
       "row": 6,
       "col": 33
     },
-    "category": "CUSTOM_P",
-    "storeyId": "B1"
+    "category": "CUSTOM_P"
   },
   {
     "id": "slot_51",
-    "provideLabor": 3,
     "size": {
       "row": 2,
       "col": 6
@@ -612,12 +525,10 @@
       "row": 6,
       "col": 39
     },
-    "category": "CUSTOM_P",
-    "storeyId": "B1"
+    "category": "CUSTOM_P"
   },
   {
     "id": "slot_33",
-    "provideLabor": 4,
     "size": {
       "row": 2,
       "col": 1
@@ -626,12 +537,10 @@
       "row": 8,
       "col": 14
     },
-    "category": "ELEVATOR",
-    "storeyId": ""
+    "category": "ELEVATOR"
   },
   {
     "id": "slot_34",
-    "provideLabor": 32,
     "size": {
       "row": 4,
       "col": 8
@@ -640,12 +549,10 @@
       "row": 8,
       "col": 15
     },
-    "category": "SPECIAL",
-    "storeyId": ""
+    "category": "SPECIAL"
   },
   {
     "id": "slot_35",
-    "provideLabor": 4,
     "size": {
       "row": 2,
       "col": 1
@@ -654,12 +561,10 @@
       "row": 8,
       "col": 23
     },
-    "category": "ELEVATOR",
-    "storeyId": "1F"
+    "category": "ELEVATOR"
   },
   {
     "id": "slot_36",
-    "provideLabor": 16,
     "size": {
       "row": 2,
       "col": 8
@@ -668,12 +573,10 @@
       "row": 8,
       "col": 24
     },
-    "category": "FUNCTION",
-    "storeyId": "1F"
+    "category": "FUNCTION"
   },
   {
     "id": "slot_48",
-    "provideLabor": 1,
     "size": {
       "row": 2,
       "col": 1
@@ -682,12 +585,10 @@
       "row": 8,
       "col": 32
     },
-    "category": "ELEVATOR",
-    "storeyId": "1F"
+    "category": "ELEVATOR"
   },
   {
     "id": "slot_37",
-    "provideLabor": 0,
     "size": {
       "row": 2,
       "col": 1
@@ -696,12 +597,10 @@
       "row": 10,
       "col": 14
     },
-    "category": "ELEVATOR",
-    "storeyId": ""
+    "category": "ELEVATOR"
   },
   {
     "id": "slot_38",
-    "provideLabor": 0,
     "size": {
       "row": 2,
       "col": 1
@@ -710,7 +609,6 @@
       "row": 10,
       "col": 23
     },
-    "category": "ELEVATOR",
-    "storeyId": ""
+    "category": "ELEVATOR"
   }
 ]

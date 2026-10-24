@@ -69,11 +69,9 @@ export const BuildingDataSchema = z.object({
         z.string(),
         z.object({
           id: z.string(),
-          provideLabor: z.number(), //* Might be redundant
           size: z.object({ row: z.number(), col: z.number() }),
           offset: z.object({ row: z.number(), col: z.number() }),
           category: z.string(),
-          storeyId: z.string(), //* Might be redundant
         }),
       ),
     }),

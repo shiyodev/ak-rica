@@ -315,7 +315,7 @@
     "description": null,
     "defaultPrefabId": "room_elevator_1x2",
     "maxCount": -1,
-    "category": "ELEVATOR",
+    "category": "SPECIAL",
     "size": {
       "row": 2,
       "col": 1
@@ -334,7 +334,7 @@
     "description": null,
     "defaultPrefabId": "room_corridor_2x2",
     "maxCount": -1,
-    "category": "CORRIDOR",
+    "category": "SPECIAL",
     "size": {
       "row": 2,
       "col": 2

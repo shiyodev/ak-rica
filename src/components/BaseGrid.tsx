@@ -28,9 +28,7 @@ export function BaseGrid({
         const roomType = Object.values(rooms).find(
           (room) => room.category == cell.category,
         )! // TODO: if checks/test have been made remove Exclamation mark
-        const isSelectable = roomType.phases.some(
-          (room) => room.maxStationedNum > 0,
-        )
+        const isSelectable = !['ELEVATOR', "CORRIDOR"].includes(cell.category)
 
         let room = cell.category
         if (!isSelectable) room = ''

@@ -1,3 +1,4 @@
+import { BaseGrid } from '@/components/BaseGrid'
 import { Button } from '@/components/ui/button'
 
 function GitHubButton() {
@@ -21,8 +22,9 @@ function GitHubButton() {
 
 export default function App() {
   return (
-    <main className="dark min-h-screen bg-background text-foreground flex justify-center">
+    <main className="dark min-h-screen bg-background text-foreground">
       <GitHubButton />
+      <BaseGrid />
     </main>
   )
 }

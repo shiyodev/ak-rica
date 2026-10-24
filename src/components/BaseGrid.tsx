@@ -1,4 +1,4 @@
-import { layout } from '@/data/index.gen'
+import { layout, rooms } from '@/data/index.gen'
 
 const cellSize = 32
 
@@ -25,19 +25,33 @@ export function BaseGrid({
     >
       {layout.map((cell) => {
         const rowPos = rowCount - cell.offset.row - cell.size.row
+        const isSelectable = Object.values(rooms)
+          .find((room) => room.category == cell.category)! // TODO: if checks/test have been made remove Exclamation mark
+          .phases.some((room) => room.maxStationedNum > 0)
+
+        // TODO: Temp
+        let text = (
+          <>
+            {cell.id}
+            <br />
+            {cell.category}
+          </>
+        )
+        if (!isSelectable) text = <></>
+
         return (
           <div
             key={cell.id}
             className="bg-blue-900 m-0.5"
-            onClick={() => onSelect(cell)}
+            onClick={() => {
+              if (isSelectable) onSelect(cell)
+            }}
             style={{
               gridColumn: `${cell.offset.col + 1} / span ${cell.size.col}`,
               gridRow: `${rowPos + 1} / span ${cell.size.row}`,
             }}
           >
-            {cell.id}
-            <br />
-            {cell.category}
+            {text}
           </div>
         )
       })}

@@ -1,0 +1,350 @@
+{
+  "CONTROL": {
+    "id": "CONTROL",
+    "name": "Control Center",
+    "description": "The control center of Rhodes Island's ship system, it is the foundation of all areas' construction.",
+    "defaultPrefabId": "room_control_8x4",
+    "maxCount": 1,
+    "category": "SPECIAL",
+    "size": {
+      "row": 4,
+      "col": 8
+    },
+    "phases": [
+      {
+        "electricity": 0,
+        "maxStationedNum": 1,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": 0,
+        "maxStationedNum": 2,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": 0,
+        "maxStationedNum": 3,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": 0,
+        "maxStationedNum": 4,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": 0,
+        "maxStationedNum": 5,
+        "manpowerCost": 100
+      }
+    ]
+  },
+  "POWER": {
+    "id": "POWER",
+    "name": "Power Plant",
+    "description": "A facility that produces electricity at Rhodes Island. It produces and transfer power through utilizing the Originium engine.",
+    "defaultPrefabId": "room_power_4x2",
+    "maxCount": 3,
+    "category": "OUTPUT",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "phases": [
+      {
+        "electricity": 60,
+        "maxStationedNum": 1,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": 130,
+        "maxStationedNum": 1,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": 270,
+        "maxStationedNum": 1,
+        "manpowerCost": 100
+      }
+    ]
+  },
+  "MANUFACTURE": {
+    "id": "MANUFACTURE",
+    "name": "Factory",
+    "description": "A facility that produces resources at Rhodes Island, it turns raw materials into industrial materials and produces all kinds of items.",
+    "defaultPrefabId": "room_manufacture_4x2",
+    "maxCount": 5,
+    "category": "OUTPUT",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "phases": [
+      {
+        "electricity": -10,
+        "maxStationedNum": 1,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": -30,
+        "maxStationedNum": 2,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": -60,
+        "maxStationedNum": 3,
+        "manpowerCost": 100
+      }
+    ]
+  },
+  "TRADING": {
+    "id": "TRADING",
+    "name": "Trading Post",
+    "description": "A facility that deals with Rhodes Island's commercial contracts and agreements with all other parties. It acquires the funds needed to fuel the research and operation of Rhodes Island.",
+    "defaultPrefabId": "room_trading_4x2",
+    "maxCount": 5,
+    "category": "OUTPUT",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "phases": [
+      {
+        "electricity": -10,
+        "maxStationedNum": 1,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": -30,
+        "maxStationedNum": 2,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": -60,
+        "maxStationedNum": 3,
+        "manpowerCost": 100
+      }
+    ]
+  },
+  "DORMITORY": {
+    "id": "DORMITORY",
+    "name": "Dormitory",
+    "description": "A facility that provides standard accommodation for Rhodes Island's Operators. It has everything needed for relaxation and entertainment.",
+    "defaultPrefabId": "room_dormitory_6x2",
+    "maxCount": 4,
+    "category": "CUSTOM",
+    "size": {
+      "row": 2,
+      "col": 6
+    },
+    "phases": [
+      {
+        "electricity": -10,
+        "maxStationedNum": 5,
+        "manpowerCost": 0
+      },
+      {
+        "electricity": -20,
+        "maxStationedNum": 5,
+        "manpowerCost": 0
+      },
+      {
+        "electricity": -30,
+        "maxStationedNum": 5,
+        "manpowerCost": 0
+      },
+      {
+        "electricity": -45,
+        "maxStationedNum": 5,
+        "manpowerCost": 0
+      },
+      {
+        "electricity": -65,
+        "maxStationedNum": 5,
+        "manpowerCost": 0
+      }
+    ]
+  },
+  "PRIVATE": {
+    "id": "PRIVATE",
+    "name": "Activity Room",
+    "description": "Rhodes Island's personal leisure facilities provide operators with individualized entertainment and activity space.",
+    "defaultPrefabId": "room_private_6x2",
+    "maxCount": 6,
+    "category": "CUSTOM_P",
+    "size": {
+      "row": 2,
+      "col": 6
+    },
+    "phases": [
+      {
+        "electricity": 0,
+        "maxStationedNum": 0,
+        "manpowerCost": 0
+      },
+      {
+        "electricity": 0,
+        "maxStationedNum": 0,
+        "manpowerCost": 0
+      },
+      {
+        "electricity": 0,
+        "maxStationedNum": 0,
+        "manpowerCost": 0
+      }
+    ]
+  },
+  "WORKSHOP": {
+    "id": "WORKSHOP",
+    "name": "Workshop",
+    "description": "A facility that processes resources at Rhodes Island, it uses all kinds of equipment to turn industrial materials into useful items or decompose them into other materials.",
+    "defaultPrefabId": "room_workshop_4x2",
+    "maxCount": 1,
+    "category": "FUNCTION",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "phases": [
+      {
+        "electricity": -10,
+        "maxStationedNum": 1,
+        "manpowerCost": 0
+      },
+      {
+        "electricity": -10,
+        "maxStationedNum": 1,
+        "manpowerCost": 0
+      },
+      {
+        "electricity": -10,
+        "maxStationedNum": 1,
+        "manpowerCost": 0
+      }
+    ]
+  },
+  "HIRE": {
+    "id": "HIRE",
+    "name": "Office",
+    "description": "A facility that deals with all of Rhodes Island's official matters.",
+    "defaultPrefabId": "room_hire_4x2",
+    "maxCount": 1,
+    "category": "FUNCTION",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "phases": [
+      {
+        "electricity": -10,
+        "maxStationedNum": 1,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": -30,
+        "maxStationedNum": 1,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": -60,
+        "maxStationedNum": 1,
+        "manpowerCost": 100
+      }
+    ]
+  },
+  "TRAINING": {
+    "id": "TRAINING",
+    "name": "Training Room",
+    "description": "A facility where Rhodes Island Operators can train themselves using the wide variety of equipment available.",
+    "defaultPrefabId": "room_training_4x2",
+    "maxCount": 1,
+    "category": "FUNCTION",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "phases": [
+      {
+        "electricity": -10,
+        "maxStationedNum": 2,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": -30,
+        "maxStationedNum": 2,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": -60,
+        "maxStationedNum": 2,
+        "manpowerCost": 100
+      }
+    ]
+  },
+  "MEETING": {
+    "id": "MEETING",
+    "name": "Reception Room",
+    "description": "A facility that deals with reception. Most visits and greetings take place here.",
+    "defaultPrefabId": "room_meeting_8x2",
+    "maxCount": 1,
+    "category": "FUNCTION",
+    "size": {
+      "row": 2,
+      "col": 8
+    },
+    "phases": [
+      {
+        "electricity": -10,
+        "maxStationedNum": 2,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": -30,
+        "maxStationedNum": 2,
+        "manpowerCost": 100
+      },
+      {
+        "electricity": -60,
+        "maxStationedNum": 2,
+        "manpowerCost": 100
+      }
+    ]
+  },
+  "ELEVATOR": {
+    "id": "ELEVATOR",
+    "name": "Elevator",
+    "description": null,
+    "defaultPrefabId": "room_elevator_1x2",
+    "maxCount": -1,
+    "category": "SPECIAL",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "phases": [
+      {
+        "electricity": 0,
+        "maxStationedNum": 0,
+        "manpowerCost": 0
+      }
+    ]
+  },
+  "CORRIDOR": {
+    "id": "CORRIDOR",
+    "name": "Corridor",
+    "description": null,
+    "defaultPrefabId": "room_corridor_2x2",
+    "maxCount": -1,
+    "category": "SPECIAL",
+    "size": {
+      "row": 2,
+      "col": 2
+    },
+    "phases": [
+      {
+        "electricity": 0,
+        "maxStationedNum": 0,
+        "manpowerCost": 0
+      }
+    ]
+  }
+}

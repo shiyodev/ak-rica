@@ -3,5 +3,11 @@
   "js/ts.preferences.importModuleSpecifier": "non-relative",
   "files.associations": {
     "*.css": "tailwindcss"
-  }
+  },
+  "eslint.rules.customizations": [
+    {
+      "rule": "@typescript-eslint/no-unused-vars",
+      "severity": "off"
+    }
+  ]
 }

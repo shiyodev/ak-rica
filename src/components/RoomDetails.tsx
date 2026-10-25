@@ -5,7 +5,7 @@ export function RoomDetails({
   room,
   onClose,
 }: {
-  room: (typeof layout)[number] | null
+  room: (typeof layout)[keyof typeof layout] | null
   onClose: () => void
 }) {
   const dialogRef = useRef<HTMLDialogElement>(null)

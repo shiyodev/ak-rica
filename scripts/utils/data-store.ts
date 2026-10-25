@@ -33,9 +33,12 @@ export const gamedata = {
       return [...new Set(Object.values(data).map((buff) => buff.skillIcon))]
     },
     /** Returns all base grid cells. */
-    baseGridCells() {
+    layoutSlots() {
       const data = gamedata.load.buildingData().layouts
-      return Object.values(data).flatMap(({ slots }) => Object.values(slots))
+      const latestVersion = Object.keys(data).reduce((latest, version) =>
+        Number(version.slice(1)) > Number(latest.slice(1)) ? version : latest,
+      )
+      return data[latestVersion].slots
     },
   },
 }

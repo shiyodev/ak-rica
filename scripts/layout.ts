@@ -4,7 +4,7 @@ import { gamedata } from '@/scripts/utils/data-store'
 import { processResult } from '@/scripts/utils/results'
 
 const outFile = path.resolve('src/data', 'layout.gen.json')
-const cells = gamedata.get.baseGridCells()
+const cells = gamedata.get.layoutSlots()
 
 // Get target value
 const highestSlotId = Object.values(cells).reduce(

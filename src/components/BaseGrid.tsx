@@ -2,7 +2,7 @@ import { layout, rooms } from '@/data/index.gen'
 
 const cellSize = 32
 
-const { colCount, rowCount } = layout.reduce(
+const { colCount, rowCount } = Object.values(layout).reduce(
   (dimensions, cell) => ({
     colCount: Math.max(dimensions.colCount, cell.offset.col + cell.size.col),
     rowCount: Math.max(dimensions.rowCount, cell.offset.row + cell.size.row),
@@ -13,7 +13,7 @@ const { colCount, rowCount } = layout.reduce(
 export function BaseGrid({
   onSelect,
 }: {
-  onSelect: (cell: (typeof layout)[number]) => void
+  onSelect: (cell: (typeof layout)[keyof typeof layout]) => void
 }) {
   return (
     <section
@@ -23,7 +23,7 @@ export function BaseGrid({
         gridAutoRows: `${cellSize}px`,
       }}
     >
-      {layout.map((cell) => {
+      {Object.values(layout).map((cell) => {
         const rowPos = rowCount - cell.offset.row - cell.size.row
         const roomType = Object.values(rooms).find(
           (room) => room.category == cell.category,

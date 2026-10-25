@@ -24,7 +24,7 @@ function GitHubButton() {
 }
 
 export default function App() {
-  const [room, setRoom] = useState<(typeof layout)[number] | null>(null)
+  const [room, setRoom] = useState<(typeof layout)[keyof typeof layout] | null>(null)
 
   return (
     <main className="dark min-h-screen bg-background text-foreground">

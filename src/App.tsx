@@ -1,7 +1,8 @@
+import { initBase, type BaseData } from '@/components/Base'
 import { BaseGrid } from '@/components/BaseGrid'
 import { RoomDetails } from '@/components/RoomDetails'
 import { Button } from '@/components/ui/button'
-import type { layout } from '@/data/index.gen'
+import { layout } from '@/data/index.gen'
 import { useState } from 'react'
 
 function GitHubButton() {
@@ -25,11 +26,12 @@ function GitHubButton() {
 
 export default function App() {
   const [room, setRoom] = useState<(typeof layout)[keyof typeof layout] | null>(null)
+  const [base, setBase] = useState<BaseData>(() => initBase())
 
   return (
     <main className="dark min-h-screen bg-background text-foreground">
       <GitHubButton />
-      <BaseGrid onSelect={setRoom} />
+      <BaseGrid base={base} onSelect={setRoom} />
       <RoomDetails room={room} onClose={() => setRoom(null)} />
     </main>
   )

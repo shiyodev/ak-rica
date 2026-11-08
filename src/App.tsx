@@ -32,7 +32,7 @@ export default function App() {
     <main className="dark min-h-screen bg-background text-foreground">
       <GitHubButton />
       <BaseGrid base={base} onSelect={setRoom} />
-      <RoomDetails room={room} onClose={() => setRoom(null)} />
+      <RoomDetails room={room} base={base} onSelect={setBase} onClose={() => setRoom(null)} />
     </main>
   )
 }

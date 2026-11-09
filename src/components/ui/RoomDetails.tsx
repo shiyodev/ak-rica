@@ -1,5 +1,6 @@
 import type { BaseData, RoomType } from '@/components/Base'
 import { Button } from '@/components/ui/button'
+import { OperatorGrid } from '@/components/ui/OperatorGrid'
 import { rooms, type layout } from '@/data/index.gen'
 import { useEffect, useRef } from 'react'
 
@@ -60,6 +61,7 @@ export function RoomDetails({
               </Button>
             ))}
       </div>
+      <OperatorGrid/>
       <button
         type="button"
         onClick={() => dialogRef.current?.close()}

@@ -8,7 +8,7 @@ export function RoomDetails({
   room,
   base,
   onClose,
-  onSelect,
+  onSelect: setBase,
 }: {
   room: (typeof layout)[keyof typeof layout] | null
   base: BaseData
@@ -48,7 +48,7 @@ export function RoomDetails({
                 variant={'secondary'}
                 key={outRooms.id}
                 onClick={() =>
-                  onSelect({
+                  setBase({
                     ...base,
                     [room.id]: {
                       ...base[room.id],
@@ -61,7 +61,7 @@ export function RoomDetails({
               </Button>
             ))}
       </div>
-      <OperatorGrid/>
+      <OperatorGrid roomId={room.id} base={base} setBase={setBase} />
       <button
         type="button"
         onClick={() => dialogRef.current?.close()}

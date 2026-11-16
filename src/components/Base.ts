@@ -4,6 +4,7 @@ export type RoomType = keyof typeof rooms | 'OUTPUT'
 type CellData = {
   roomType: RoomType | null
   isSelectable: boolean
+  operators: string[]
 }
 export type BaseData = Record<string, CellData>
 
@@ -41,6 +42,7 @@ export function initBase() {
       {
         roomType: getRoomType(cell),
         isSelectable: true,
+        operators: [],
       } satisfies CellData,
     ]),
   )
@@ -64,4 +66,3 @@ function assignFunctionRooms(base: BaseData) {
   for (const [id, update] of Object.entries(functionRooms))
     Object.assign(base[id], update)
 }
-

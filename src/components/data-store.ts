@@ -1,4 +1,4 @@
-const avatars = Object.values(
+export const avatars = Object.values(
   import.meta.glob<string>('@/assets/avatars/*.png', {
     eager: true,
     query: '?url',

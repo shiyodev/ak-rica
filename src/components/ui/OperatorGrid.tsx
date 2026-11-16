@@ -1,13 +1,5 @@
 import type { BaseData } from '@/components/Base'
-import { getAvatar } from '@/components/data-store'
-
-const images = Object.values(
-  import.meta.glob<string>('@/assets/avatars/*.png', {
-    eager: true,
-    query: '?url',
-    import: 'default',
-  }),
-)
+import { avatars, getAvatar } from '@/components/data-store'
 
 export function OperatorGrid({
   roomId,
@@ -34,10 +26,10 @@ export function OperatorGrid({
       </div>
       Operators
       <div className="grid gap-2 grid-cols-5">
-        {images.map((img) => (
+        {avatars.map((avatar) => (
           <img
-            key={img}
-            src={img}
+            key={avatar}
+            src={avatar}
             alt=""
             loading="lazy"
             decoding="async"
@@ -47,7 +39,7 @@ export function OperatorGrid({
                 ...base,
                 [roomId]: {
                   ...base[roomId],
-                  operators: [...base[roomId].operators, img],
+                  operators: [...base[roomId].operators, avatar],
                 },
               })
             } //TODO: display neatly. make searchable => prototype of base grid done => refactor

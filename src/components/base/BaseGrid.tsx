@@ -1,6 +1,7 @@
-import { baseColCount, baseRowCount, type BaseData } from '@/components/base/model/Base'
 import { getAvatarPath } from '@/utils/data-store'
 import { layout } from '@/data/index.gen'
+import { baseColCount, baseRowCount } from '@/components/base/utils/baseDimensions'
+import type { BaseData } from '@/components/base/model/Base'
 
 const cellSize = 32
 

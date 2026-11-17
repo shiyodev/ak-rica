@@ -1,6 +1,7 @@
-import { initBase, type BaseData } from '@/components/base/model/Base'
 import { BaseGrid } from '@/components/base/BaseGrid'
+import type { BaseData } from '@/components/base/model/Base'
 import { RoomDetails } from '@/components/base/RoomDetails'
+import { initBase } from '@/components/base/utils/initBase'
 import { Button } from '@/components/ui/button'
 import { layout } from '@/data/index.gen'
 import { useState } from 'react'

@@ -1,12 +1,18 @@
 import type { BaseData, CellData, RoomType } from '@/components/base/model/Base'
 import { layout, rooms } from '@/data/index.gen'
 
-
+/**
+ * Initializes the base grid
+ * @returns The default base grid
+ */
 export function initBase() {
   const base = getLayout()
   return withUniqueRoomTypes(base)
 }
 
+/**
+ * @returns The generic base layout
+ */
 function getLayout(): BaseData {
   const isFillerRoom = (cell: (typeof layout)[keyof typeof layout]) =>
     ['ELEVATOR', 'CORRIDOR'].includes(cell.category)
@@ -41,6 +47,11 @@ function getRoomType(
   return isRoomType(matchingRooms[0].id) ? matchingRooms[0].id : null // DORMITORY + PRIVATE
 }
 
+/**
+ * Assigns the room type of every function-category cell
+ * @param base The base data to be updated
+ * @returns The updated base data
+ */
 function withUniqueRoomTypes(base: BaseData): BaseData {
   const updated = { ...base }
   const functionRooms = {

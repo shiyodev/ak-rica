@@ -22,6 +22,15 @@ export function OperatorGrid({
             alt=""
             decoding="async"
             className="h-32 w-32 rounded"
+            onClick={() =>
+              setBase({
+                ...base,
+                [roomId]: {
+                  ...base[roomId],
+                  operators: base[roomId].operators.filter((i) => i != op),
+                },
+              })
+            }
           />
         ))}
       </div>
@@ -46,7 +55,7 @@ export function OperatorGrid({
                   ],
                 },
               })
-            } //TODO: display neatly. make searchable => prototype of base grid done => refactor
+            } //TODO: display neatly => refactor
           />
         ))}
       </div>

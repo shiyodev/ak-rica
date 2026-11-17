@@ -1,6 +1,6 @@
 import { rooms } from '@/data/index.gen'
 
-export type RoomType = keyof typeof rooms | 'OUTPUT'
+export type RoomType = keyof typeof rooms
 export type CellData = {
   roomType: RoomType | null
   isSelectable: boolean

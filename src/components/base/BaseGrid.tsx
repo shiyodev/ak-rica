@@ -22,7 +22,7 @@ export function BaseGrid({
     >
       {Object.values(layout).map((cell) => {
         const slot = base[cell.id]
-        const room = slot.isSelectable ? slot.roomType : null
+        const room = slot.isSelectable ? slot.roomType ?? 'OUTPUT' : null
         const rowPos = baseRowCount - cell.offset.row - cell.size.row
 
         return (

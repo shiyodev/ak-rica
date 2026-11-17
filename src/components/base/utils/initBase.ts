@@ -2,7 +2,7 @@ import type { BaseData, CellData, RoomType } from '@/components/base/model/Base'
 import { layout, rooms } from '@/data/index.gen'
 
 function isRoomType(value: string): value is RoomType {
-  return Object.keys(rooms).includes(value) || value === 'OUTPUT'
+  return Object.keys(rooms).includes(value)
 }
 
 function getRoomType(

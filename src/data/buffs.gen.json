@@ -284,6 +284,21 @@
     "targetGroupSortId": 0,
     "targets": []
   },
+  "control_hire_spd_all[000]": {
+    "buffId": "control_hire_spd_all[000]",
+    "buffName": "Office Person of the Year",
+    "buffIcon": "control",
+    "skillIcon": "bskill_ctrl_orchd2",
+    "sortId": 1399,
+    "buffColor": "#005752",
+    "textColor": "#ffffff",
+    "buffCategory": "FUNCTION",
+    "roomType": "CONTROL",
+    "description": "When this Operator is assigned to the Control Center, HR contacting speed <@cc.vup>+10%</> (Only the strongest effect of this type takes place)",
+    "efficiency": 0,
+    "targetGroupSortId": 0,
+    "targets": []
+  },
   "control_upMeetingSpeed[000]": {
     "buffId": "control_upMeetingSpeed[000]",
     "buffName": "Worldly Insight",
@@ -3689,6 +3704,21 @@
     "targetGroupSortId": 0,
     "targets": []
   },
+  "trade_ord_spd[022]": {
+    "buffId": "trade_ord_spd[022]",
+    "buffName": "Mood Maker",
+    "buffIcon": "trading",
+    "skillIcon": "bskill_tra_spd3&catap2",
+    "sortId": 4903,
+    "buffColor": "#0075a9",
+    "textColor": "#ffffff",
+    "buffCategory": "OUTPUT",
+    "roomType": "TRADING",
+    "description": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+35%</>",
+    "efficiency": 35,
+    "targetGroupSortId": 0,
+    "targets": []
+  },
   "trade_ord_vodfox[000]": {
     "buffId": "trade_ord_vodfox[000]",
     "buffName": "Whispers",
@@ -4526,6 +4556,21 @@
     "roomType": "TRADING",
     "description": "When this Operator is assigned to a Trading Post, order acquisition efficiency <@cc.vup>+5%</>, order limit <@cc.vup>+2</>, plus an additional order acquisition efficiency <@cc.vup>+3%</> for every <$cc.bd_felyne><@cc.rem>Felvine</></>",
     "efficiency": 5,
+    "targetGroupSortId": 0,
+    "targets": []
+  },
+  "trade_ord_spd&limit_tag[000]": {
+    "buffId": "trade_ord_spd&limit_tag[000]",
+    "buffName": "Captain's Sense of Duty",
+    "buffIcon": "trading",
+    "skillIcon": "bskill_tra_orchd2",
+    "sortId": 4150,
+    "buffColor": "#0075a9",
+    "textColor": "#ffffff",
+    "buffCategory": "OUTPUT",
+    "roomType": "TRADING",
+    "description": "When this Operator is assigned to a Trading Post, order limit <@cc.vup>+3</>; for every <$cc.tag.mh2><@cc.kw>Houei Hunting Squad</></> Operator assigned to a Trading Post, order acquisition efficiency <@cc.vup>+20%</>",
+    "efficiency": 0,
     "targetGroupSortId": 0,
     "targets": []
   },
@@ -6839,6 +6884,36 @@
     "targetGroupSortId": 1,
     "targets": []
   },
+  "train_spd_doubleProf3[000]": {
+    "buffId": "train_spd_doubleProf3[000]",
+    "buffName": "On a Whim α",
+    "buffIcon": "training",
+    "skillIcon": "bskill_train_mh2_guard&sniper1",
+    "sortId": 9901,
+    "buffColor": "#7d0022",
+    "textColor": "#ffffff",
+    "buffCategory": "FUNCTION",
+    "roomType": "TRAINING",
+    "description": "When this Operator is assigned to be the Trainer in the Training Room, <@cc.kw>Guard</> and <@cc.kw>Sniper</> Operators' Specialization training speed<@cc.vup>+30%</>",
+    "efficiency": 30,
+    "targetGroupSortId": 2,
+    "targets": []
+  },
+  "train_spd_doubleProf3[100]": {
+    "buffId": "train_spd_doubleProf3[100]",
+    "buffName": "On a Whim β",
+    "buffIcon": "training",
+    "skillIcon": "bskill_train_mh2_guard&sniper2",
+    "sortId": 9901,
+    "buffColor": "#7d0022",
+    "textColor": "#ffffff",
+    "buffCategory": "FUNCTION",
+    "roomType": "TRAINING",
+    "description": "When this Operator is assigned to be the Trainer in the Training Room, <@cc.kw>Guard</> and <@cc.kw>Sniper</> Operators' Specialization training speed <@cc.vup>+50%</>, Morale consumed per hour <@cc.vdown>+1</>",
+    "efficiency": 50,
+    "targetGroupSortId": 2,
+    "targets": []
+  },
   "train_spd_reduceTime[000]": {
     "buffId": "train_spd_reduceTime[000]",
     "buffName": "Mental Training",
@@ -8365,6 +8440,21 @@
     "buffCategory": "RECOVERY",
     "roomType": "DORMITORY",
     "description": "When this Operator is assigned to a Dormitory, restores <@cc.vup>+0.55</> Morale per hour to another Operator assigned to that Dormitory whose Morale is not full (Only the strongest effect of this type takes place); if the target is <@cc.kw>Blue Poison</>, further increases Morale restored by <@cc.vup>+0.45</>",
+    "efficiency": 0,
+    "targetGroupSortId": 0,
+    "targets": []
+  },
+  "dorm_rec_single&tag[000]": {
+    "buffId": "dorm_rec_single&tag[000]",
+    "buffName": "Hunting Buddy",
+    "buffIcon": "dormitory",
+    "skillIcon": "bskill_dorm_buddy",
+    "sortId": 5214,
+    "buffColor": "#21cdcb",
+    "textColor": "#ffffff",
+    "buffCategory": "RECOVERY",
+    "roomType": "DORMITORY",
+    "description": "When this Operator is assigned to a Dormitory, restores <@cc.vup>+0.55</> Morale per hour to another Operator assigned to that Dormitory whose Morale is not full (Only the strongest effect of this type takes place); if the target is a member of <$cc.tag.mh><@cc.kw>Soubo Adventurers</></> or <$cc.tag.mh2><@cc.kw>Houei Hunting Squad</></>, further increases Morale restored by <@cc.vup>+0.45</>",
     "efficiency": 0,
     "targetGroupSortId": 0,
     "targets": []
@@ -10765,6 +10855,21 @@
     "buffCategory": "FUNCTION",
     "roomType": "MEETING",
     "description": "When this Operator is assigned to the Reception Room, increases the likelihood of obtaining clues that are not on the Clue Board.",
+    "efficiency": 0,
+    "targetGroupSortId": 0,
+    "targets": []
+  },
+  "meet_spd_notOwned_P[000]": {
+    "buffId": "meet_spd_notOwned_P[000]",
+    "buffName": "Stealth Expert",
+    "buffIcon": "meeting",
+    "skillIcon": "bskill_meet_buddy",
+    "sortId": 6815,
+    "buffColor": "#dd653f",
+    "textColor": "#ffffff",
+    "buffCategory": "FUNCTION",
+    "roomType": "MEETING",
+    "description": "When this Operator is assigned to the Reception Room, increases the likelihood of obtaining clues that are not on the Clue Board; if <@cc.kw>Violet Mizutsune Orchid</> is assigned to the Control Center, Clue search speed increases by <@cc.vup>10%</>",
     "efficiency": 0,
     "targetGroupSortId": 0,
     "targets": []

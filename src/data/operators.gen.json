@@ -11534,5 +11534,93 @@
         ]
       }
     ]
+  },
+  "char_1048_orchd2": {
+    "name": "Violet Mizutsune Orchid",
+    "buffs": [
+      {
+        "buffData": [
+          {
+            "buffId": "control_hire_spd_all[000]",
+            "cond": {
+              "phase": "PHASE_0",
+              "level": 1
+            }
+          }
+        ]
+      },
+      {
+        "buffData": [
+          {
+            "buffId": "trade_ord_spd&limit_tag[000]",
+            "cond": {
+              "phase": "PHASE_2",
+              "level": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "char_1049_catap2": {
+    "name": "Zinogre S Catapult",
+    "buffs": [
+      {
+        "buffData": [
+          {
+            "buffId": "train_spd_doubleProf3[000]",
+            "cond": {
+              "phase": "PHASE_0",
+              "level": 1
+            }
+          },
+          {
+            "buffId": "train_spd_doubleProf3[100]",
+            "cond": {
+              "phase": "PHASE_2",
+              "level": 1
+            }
+          }
+        ]
+      },
+      {
+        "buffData": [
+          {
+            "buffId": "trade_ord_spd[022]",
+            "cond": {
+              "phase": "PHASE_2",
+              "level": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "char_4215_buddy": {
+    "name": "Rhodes Island Recon",
+    "buffs": [
+      {
+        "buffData": [
+          {
+            "buffId": "dorm_rec_single&tag[000]",
+            "cond": {
+              "phase": "PHASE_0",
+              "level": 1
+            }
+          }
+        ]
+      },
+      {
+        "buffData": [
+          {
+            "buffId": "meet_spd_notOwned_P[000]",
+            "cond": {
+              "phase": "PHASE_0",
+              "level": 30
+            }
+          }
+        ]
+      }
+    ]
   }
 }

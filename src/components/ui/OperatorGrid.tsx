@@ -1,5 +1,6 @@
 import type { BaseData } from '@/components/Base'
-import { avatars, getAvatar } from '@/components/data-store'
+import { avatars, getAvatarPath } from '@/components/data-store'
+import { getFilestem } from '@/components/utils'
 
 export function OperatorGrid({
   roomId,
@@ -17,7 +18,7 @@ export function OperatorGrid({
         {base[roomId].operators.map((op) => (
           <img
             key={op}
-            src={getAvatar(op)}
+            src={getAvatarPath(op)}
             alt=""
             decoding="async"
             className="h-32 w-32 rounded"
@@ -26,10 +27,10 @@ export function OperatorGrid({
       </div>
       Operators
       <div className="grid gap-2 grid-cols-5">
-        {avatars.map((avatar) => (
+        {avatars.map((avatarPath) => (
           <img
-            key={avatar}
-            src={avatar}
+            key={avatarPath}
+            src={avatarPath}
             alt=""
             loading="lazy"
             decoding="async"
@@ -39,7 +40,10 @@ export function OperatorGrid({
                 ...base,
                 [roomId]: {
                   ...base[roomId],
-                  operators: [...base[roomId].operators, avatar],
+                  operators: [
+                    ...base[roomId].operators,
+                    getFilestem(avatarPath),
+                  ],
                 },
               })
             } //TODO: display neatly. make searchable => prototype of base grid done => refactor

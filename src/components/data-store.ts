@@ -14,8 +14,10 @@ export const avatars = Object.values(
  * @param operatorId Operator ID to match against avatar image filenames
  * @returns Path to the avatar image
  */
-export function getAvatar(operatorName: string) {
-  const avatar = avatars.find((img) => img.includes(operatorName))
-  if (avatar) return avatar
-  throw new Error(`Unable to find an Avatar for ${operatorName}!`)
+export function getAvatarPath(operatorId: string) {
+  const path = avatars.find((imgPath) =>
+    imgPath.endsWith(`/${operatorId}.png`),
+  )
+  if (!path) throw new Error(`Unable to find avatar file at "${operatorId}"!`)
+  return path
 }

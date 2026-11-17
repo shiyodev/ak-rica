@@ -1,6 +1,6 @@
-import type { BaseData, RoomType } from '@/components/Base'
+import type { BaseData, RoomType } from '@/components/base/model/Base'
+import { OperatorGrid } from '@/components/base/OperatorGrid'
 import { Button } from '@/components/ui/button'
-import { OperatorGrid } from '@/components/ui/OperatorGrid'
 import { rooms, type layout } from '@/data/index.gen'
 import { useEffect, useRef } from 'react'
 

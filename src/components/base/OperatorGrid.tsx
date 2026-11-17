@@ -1,6 +1,6 @@
-import type { BaseData } from '@/components/Base'
-import { avatars, getAvatarPath } from '@/components/data-store'
-import { getFilestem } from '@/components/utils'
+import type { BaseData } from '@/components/base/model/Base'
+import { avatars, getAvatarPath } from '@/utils/data-store'
+import { getFilestem } from '@/utils/utils'
 
 export function OperatorGrid({
   roomId,

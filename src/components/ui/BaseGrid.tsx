@@ -1,4 +1,5 @@
 import { baseColCount, baseRowCount, type BaseData } from '@/components/Base'
+import { getAvatarPath } from '@/components/data-store'
 import { layout } from '@/data/index.gen'
 
 const cellSize = 32
@@ -36,6 +37,18 @@ export function BaseGrid({
             }}
           >
             {room}
+            <div className="grid gap-1 grid-cols-5">
+              {base[cell.id].operators.map((op) => (
+                <img
+                  key={op}
+                  src={getAvatarPath(op)}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  className="h-8 w-8 rounded"
+                />
+              ))}
+            </div>
           </div>
         )
       })}

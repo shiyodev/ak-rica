@@ -55,7 +55,7 @@ export function OperatorGrid({
                   ],
                 },
               })
-            } //TODO: display neatly => refactor
+            }
           />
         ))}
       </div>

@@ -1,4 +1,4 @@
-import type { BaseData, CellData, RoomType } from '@/components/base/model/Base'
+import type { BaseData, CellData, Room, RoomType } from '@/components/base/model/Base'
 import { layout, rooms } from '@/data/index.gen'
 
 /**
@@ -14,15 +14,15 @@ export function initBase() {
  * @returns The generic base layout
  */
 function getLayout(): BaseData {
-  const isFillerRoom = (cell: (typeof layout)[keyof typeof layout]) =>
-    ['ELEVATOR', 'CORRIDOR'].includes(cell.category)
+  const isFillerRoom = (room: Room) =>
+    ['ELEVATOR', 'CORRIDOR'].includes(room.category)
 
   return Object.fromEntries(
-    Object.values(layout).map((cell) => [
-      cell.id,
+    Object.values(layout).map((room) => [
+      room.id,
       {
-        roomType: getRoomType(cell),
-        isSelectable: !isFillerRoom(cell),
+        roomType: getRoomType(room),
+        isSelectable: !isFillerRoom(room),
         operators: [],
       } satisfies CellData,
     ]),
@@ -32,12 +32,12 @@ function getLayout(): BaseData {
 //? Checks 3 different sources where the room type may be defined because the gamedata is weird
 //! Order of checks + returns is important; dont change
 function getRoomType(
-  cell: (typeof layout)[keyof typeof layout],
+  room: Room,
 ): RoomType | null {
   const isRoomType = (value: string): value is RoomType =>
     Object.keys(rooms).includes(value)
 
-  const { category } = cell
+  const { category } = room
   if (isRoomType(category)) return category // ELEVATOR + CORRIDOR
 
   const matchingRooms = Object.values(rooms).filter(

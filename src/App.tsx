@@ -1,5 +1,5 @@
 import { BaseGrid } from '@/components/base/BaseGrid'
-import { RoomDetails } from '@/components/base/RoomDetails'
+import { RoomDetails } from '@/components/inpector/RoomDetails'
 import { GitHubButton } from '@/components/GitHubButton'
 import { layout } from '@/data/index.gen'
 import { useState } from 'react'

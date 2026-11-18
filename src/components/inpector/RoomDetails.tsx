@@ -1,7 +1,7 @@
 import { useBase } from '@/components/base/hooks/useBase'
 import { useBaseMutations } from '@/components/base/hooks/useBaseMutations'
 import type { Room, RoomType } from '@/components/base/model/Base'
-import { OperatorGrid } from '@/components/base/OperatorGrid'
+import { OperatorGrid } from '@/components/inpector/OperatorGrid'
 import { Button } from '@/components/ui/button'
 import { rooms } from '@/data/index.gen'
 import { useEffect, useRef } from 'react'

@@ -1,16 +1,11 @@
 import { useBase } from '@/components/base/hooks/useBase'
 import { useBaseMutations } from '@/components/base/hooks/useBaseMutations'
-import type { Room, RoomType } from '@/components/base/model/Base'
+import type { Room } from '@/components/base/model/Base'
 import { OperatorGrid } from '@/components/inpector/OperatorGrid'
-import { Button } from '@/components/ui/button'
-import { rooms } from '@/data/index.gen'
+import { OutputRoomTypeOptions } from '@/components/inpector/RoomTypeOptions'
 import { useEffect, useRef } from 'react'
 
-const outputRoomTypes = (Object.keys(rooms) as RoomType[]).filter(
-  (roomType) => rooms[roomType].category === 'OUTPUT',
-)
-
-export function RoomDetails({
+export function RoomInspector({
   room,
   onClose,
 }: {
@@ -51,29 +46,5 @@ export function RoomDetails({
         Close
       </button>
     </dialog>
-  )
-}
-
-/**
- * Renders the selection of output room types
- */
-function OutputRoomTypeOptions({
-  onSelect,
-}: {
-  onSelect: (roomType: RoomType) => void
-}) {
-  return (
-    <>
-      {outputRoomTypes.map((roomType) => (
-        <Button
-          size={'lg'}
-          variant={'secondary'}
-          key={roomType}
-          onClick={() => onSelect(roomType)}
-        >
-          {roomType}
-        </Button>
-      ))}
-    </>
   )
 }

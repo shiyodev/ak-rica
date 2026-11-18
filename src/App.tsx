@@ -1,6 +1,6 @@
 import { BaseGrid } from '@/components/base/BaseGrid'
-import { RoomDetails } from '@/components/inpector/RoomDetails'
 import { GitHubButton } from '@/components/GitHubButton'
+import { RoomInspector } from '@/components/inpector/RoomInspector'
 import { layout } from '@/data/index.gen'
 import { useState } from 'react'
 
@@ -13,7 +13,7 @@ export default function App() {
     <main className="dark min-h-screen bg-background text-foreground">
       <GitHubButton />
       <BaseGrid onSelect={setRoom} />
-      <RoomDetails room={room} onClose={() => setRoom(null)} />
+      <RoomInspector room={room} onClose={() => setRoom(null)} />
     </main>
   )
 }

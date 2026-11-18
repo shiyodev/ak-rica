@@ -1,9 +1,9 @@
 import type { BaseData } from '@/components/base/model/Base'
-import { createContext } from 'react'
+import { createContext, type Dispatch, type SetStateAction } from 'react'
 
 interface BaseContextType {
   base: BaseData
-  setBase: (base: BaseData) => void
+  setBase: Dispatch<SetStateAction<BaseData>>
 }
 
 /**

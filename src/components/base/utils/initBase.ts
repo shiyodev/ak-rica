@@ -1,4 +1,9 @@
-import type { BaseData, CellData, Room, RoomType } from '@/components/base/model/Base'
+import type {
+  BaseData,
+  CellData,
+  Room,
+  RoomType,
+} from '@/components/base/model/Base'
 import { layout, rooms } from '@/data/index.gen'
 
 /**
@@ -31,9 +36,7 @@ function getLayout(): BaseData {
 
 //? Checks 3 different sources where the room type may be defined because the gamedata is weird
 //! Order of checks + returns is important; dont change
-function getRoomType(
-  room: Room,
-): RoomType | null {
+function getRoomType(room: Room): RoomType | null {
   const isRoomType = (value: string): value is RoomType =>
     Object.keys(rooms).includes(value)
 

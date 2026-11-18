@@ -5,7 +5,9 @@ import { layout } from '@/data/index.gen'
 import { useState } from 'react'
 
 export default function App() {
-  const [room, setRoom] = useState<(typeof layout)[keyof typeof layout] | null>(null)
+  const [room, setRoom] = useState<(typeof layout)[keyof typeof layout] | null>(
+    null,
+  )
 
   return (
     <main className="dark min-h-screen bg-background text-foreground">

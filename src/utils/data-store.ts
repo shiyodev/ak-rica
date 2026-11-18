@@ -15,9 +15,7 @@ export const avatars = Object.values(
  * @returns Path to the avatar image
  */
 export function getAvatarPath(operatorId: string) {
-  const path = avatars.find((imgPath) =>
-    imgPath.endsWith(`/${operatorId}.png`),
-  )
+  const path = avatars.find((imgPath) => imgPath.endsWith(`/${operatorId}.png`))
   if (!path) throw new Error(`Unable to find avatar file at "${operatorId}"!`)
   return path
 }

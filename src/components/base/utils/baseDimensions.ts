@@ -1,4 +1,4 @@
-import { layout } from '@/data/index.gen';
+import { layout } from '@/data/index.gen'
 
 export const { colCount: baseColCount, rowCount: baseRowCount } = Object.values(
   layout,

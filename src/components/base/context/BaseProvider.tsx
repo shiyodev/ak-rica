@@ -6,7 +6,7 @@ import { useState, type ReactNode } from 'react'
  * Manages the state of the base and provides access to the base data
  * @returns Implicit access to {@link BaseContext} for all react JSX children
  */
-export function BaseProvider({ children }: {children: ReactNode}) {
+export function BaseProvider({ children }: { children: ReactNode }) {
   const [base, setBase] = useState(initBase)
 
   return (

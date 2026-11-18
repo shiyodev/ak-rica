@@ -1,4 +1,5 @@
-import type { BaseData, RoomType } from '@/components/base/model/Base'
+import { useBase } from '@/components/base/context/useBase'
+import type { RoomType } from '@/components/base/model/Base'
 import { OperatorGrid } from '@/components/base/OperatorGrid'
 import { Button } from '@/components/ui/button'
 import { rooms, type layout } from '@/data/index.gen'
@@ -6,9 +7,7 @@ import { useEffect, useRef } from 'react'
 
 interface RoomDetailsProps {
   room: (typeof layout)[keyof typeof layout] | null
-  base: BaseData
   onClose: () => void
-  onSelect: (base: BaseData) => void
 }
 
 const outputRoomTypes = (Object.keys(rooms) as RoomType[]).filter(
@@ -36,13 +35,9 @@ function OutputRoomTypeOptions({
   )
 }
 
-export function RoomDetails({
-  room,
-  base,
-  onClose,
-  onSelect: setBase,
-}: RoomDetailsProps) {
+export function RoomDetails({ room, onClose }: RoomDetailsProps) {
   const dialogRef = useRef<HTMLDialogElement>(null)
+  const { base, setBase } = useBase()
 
   useEffect(() => {
     const dialog = dialogRef.current

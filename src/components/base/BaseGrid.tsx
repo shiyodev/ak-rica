@@ -1,17 +1,20 @@
 import { getAvatarPath } from '@/utils/data-store'
 import { layout } from '@/data/index.gen'
-import { baseColCount, baseRowCount } from '@/components/base/utils/baseDimensions'
-import type { BaseData } from '@/components/base/model/Base'
+import {
+  baseColCount,
+  baseRowCount,
+} from '@/components/base/utils/baseDimensions'
+import { useBase } from '@/components/base/context/useBase'
 
 const cellSize = 32
 
 export function BaseGrid({
-  base,
   onSelect,
 }: {
-  base: BaseData
   onSelect: (cell: (typeof layout)[keyof typeof layout]) => void
 }) {
+  const { base } = useBase()
+
   return (
     <section
       className="grid auto-rows-12 p-2"
@@ -22,7 +25,7 @@ export function BaseGrid({
     >
       {Object.values(layout).map((cell) => {
         const slot = base[cell.id]
-        const room = slot.isSelectable ? slot.roomType ?? 'OUTPUT' : null
+        const room = slot.isSelectable ? (slot.roomType ?? 'OUTPUT') : null
         const rowPos = baseRowCount - cell.offset.row - cell.size.row
 
         return (

@@ -1,4 +1,4 @@
-import type { BaseData } from '@/components/base/model/Base'
+import type { BaseData } from '@/components/base/models/Base'
 import { avatars, getAvatarPath } from '@/utils/data-store'
 import { getFilestem } from '@/utils/utils'
 

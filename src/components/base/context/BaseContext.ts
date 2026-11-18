@@ -1,4 +1,4 @@
-import type { BaseData } from '@/components/base/model/Base'
+import type { BaseData } from '@/components/base/models/Base'
 import { createContext, type Dispatch, type SetStateAction } from 'react'
 
 interface BaseContextType {

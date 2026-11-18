@@ -1,5 +1,5 @@
 import { useBase } from '@/components/base/hooks/useBase'
-import type { Room, RoomType } from '@/components/base/model/Base'
+import type { LayoutSlot, RoomType } from '@/components/base/models/Base'
 import { updateRoomType } from '@/components/base/utils/baseActions'
 
 /**
@@ -9,7 +9,7 @@ export function useBaseMutations() {
   const { setBase } = useBase()
 
   return {
-    setRoomType: (room: Room, type: RoomType) => {
+    setRoomType: (room: LayoutSlot, type: RoomType) => {
       setBase((base) => updateRoomType(base, room, type))
     },
   }

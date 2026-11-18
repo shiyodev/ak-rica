@@ -1,9 +1,9 @@
 import type {
   BaseData,
-  CellData,
-  Room,
+  BaseCell,
+  LayoutSlot,
   RoomType,
-} from '@/components/base/model/Base'
+} from '@/components/base/models/Base'
 import { layout, rooms } from '@/data/index.gen'
 
 /**
@@ -19,7 +19,7 @@ export function initBase() {
  * @returns The generic base layout
  */
 function getLayout(): BaseData {
-  const isFillerRoom = (room: Room) =>
+  const isFillerRoom = (room: LayoutSlot) =>
     ['ELEVATOR', 'CORRIDOR'].includes(room.category)
 
   return Object.fromEntries(
@@ -29,14 +29,14 @@ function getLayout(): BaseData {
         roomType: getRoomType(room),
         isSelectable: !isFillerRoom(room),
         operators: [],
-      } satisfies CellData,
+      } satisfies BaseCell,
     ]),
   )
 }
 
 //? Checks 3 different sources where the room type may be defined because the gamedata is weird
 //! Order of checks + returns is important; dont change
-function getRoomType(room: Room): RoomType | null {
+function getRoomType(room: LayoutSlot): RoomType | null {
   const isRoomType = (value: string): value is RoomType =>
     Object.keys(rooms).includes(value)
 
@@ -63,7 +63,7 @@ function withUniqueRoomTypes(base: BaseData): BaseData {
     slot_32: { roomType: 'WORKSHOP' },
     slot_23: { roomType: 'HIRE' },
     slot_13: { roomType: 'TRAINING' },
-  } satisfies Record<string, Partial<CellData>>
+  } satisfies Record<string, Partial<BaseCell>>
 
   for (const [id, roomType] of Object.entries(functionRooms))
     updated[id] = { ...updated[id], ...roomType }

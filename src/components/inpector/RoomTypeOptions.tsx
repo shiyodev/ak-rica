@@ -1,4 +1,4 @@
-import type { RoomType } from '@/components/base/model/Base'
+import type { RoomType } from '@/components/base/models/Base'
 import { Button } from '@/components/ui/button'
 import { rooms } from '@/data/index.gen'
 

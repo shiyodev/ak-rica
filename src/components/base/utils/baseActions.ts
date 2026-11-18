@@ -1,4 +1,4 @@
-import type { BaseData, Room, RoomType } from '@/components/base/model/Base'
+import type { BaseData, LayoutSlot, RoomType } from '@/components/base/models/Base'
 
 /**
  * Returns a copy of the base with the specified mutation
@@ -7,7 +7,7 @@ import type { BaseData, Room, RoomType } from '@/components/base/model/Base'
  * @param roomType The rooms new type
  * @returns
  */
-export function updateRoomType(base: BaseData, room: Room, roomType: RoomType) {
+export function updateRoomType(base: BaseData, room: LayoutSlot, roomType: RoomType) {
   return {
     ...base,
     [room.id]: {

@@ -1,6 +1,6 @@
 import { useBase } from '@/components/base/hooks/useBase'
 import { useBaseMutations } from '@/components/base/hooks/useBaseMutations'
-import type { Room } from '@/components/base/model/Base'
+import type { LayoutSlot } from '@/components/base/models/Base'
 import { OperatorGrid } from '@/components/inpector/OperatorGrid'
 import { OutputRoomTypeOptions } from '@/components/inpector/RoomTypeOptions'
 import { useEffect, useRef } from 'react'
@@ -9,7 +9,7 @@ export function RoomInspector({
   room,
   onClose,
 }: {
-  room: Room | null
+  room: LayoutSlot | null
   onClose: VoidFunction
 }) {
   const dialogRef = useRef<HTMLDialogElement>(null)

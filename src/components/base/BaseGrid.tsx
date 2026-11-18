@@ -4,7 +4,7 @@ import {
   baseColCount,
   baseRowCount,
 } from '@/components/base/utils/baseDimensions'
-import { useBase } from '@/components/base/context/useBase'
+import { useBase } from '@/components/base/hooks/useBase'
 
 const cellSize = 32
 

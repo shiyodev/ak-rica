@@ -4,28 +4,62 @@ import { Button } from '@/components/ui/button'
 import { rooms, type layout } from '@/data/index.gen'
 import { useEffect, useRef } from 'react'
 
+interface RoomDetailsProps {
+  room: (typeof layout)[keyof typeof layout] | null
+  base: BaseData
+  onClose: () => void
+  onSelect: (base: BaseData) => void
+}
+
+const outputRoomTypes = (Object.keys(rooms) as RoomType[]).filter(
+  (roomType) => rooms[roomType].category === 'OUTPUT',
+)
+
+function OutputRoomTypeOptions({
+  onSelect,
+}: {
+  onSelect: (roomType: RoomType) => void
+}) {
+  return (
+    <>
+      {outputRoomTypes.map((roomType) => (
+        <Button
+          size={'lg'}
+          variant={'secondary'}
+          key={roomType}
+          onClick={() => onSelect(roomType)}
+        >
+          {roomType}
+        </Button>
+      ))}
+    </>
+  )
+}
+
 export function RoomDetails({
   room,
   base,
   onClose,
   onSelect: setBase,
-}: {
-  room: (typeof layout)[keyof typeof layout] | null
-  base: BaseData
-  onClose: () => void
-  onSelect: (base: BaseData) => void
-}) {
+}: RoomDetailsProps) {
   const dialogRef = useRef<HTMLDialogElement>(null)
 
   useEffect(() => {
     const dialog = dialogRef.current
-    if (!dialog) return
-
-    if (room && !dialog.open) dialog.showModal()
-    if (!room && dialog.open) dialog.close()
+    if (room) dialog?.showModal()
   }, [room])
 
-  if (!room) return
+  if (!room) return null
+  const selectOutputRoomType = (roomType: RoomType) => {
+    setBase({
+      ...base,
+      [room.id]: {
+        ...base[room.id],
+        roomType,
+      },
+    })
+  }
+
   return (
     <dialog
       ref={dialogRef}
@@ -38,29 +72,9 @@ export function RoomDetails({
       className="m-auto rounded-lg bg-zinc-900 p-6 text-foreground backdrop:bg-black/60"
     >
       <h2 className="text-lg font-semibold">{room.id}</h2>
-      <div>
-        {room.category === 'OUTPUT' &&
-          Object.values(rooms)
-            .filter((room) => room.category === 'OUTPUT')
-            .map((outRooms) => (
-              <Button
-                size={'lg'}
-                variant={'secondary'}
-                key={outRooms.id}
-                onClick={() =>
-                  setBase({
-                    ...base,
-                    [room.id]: {
-                      ...base[room.id],
-                      roomType: outRooms.id as RoomType,
-                    },
-                  })
-                }
-              >
-                {outRooms.id}
-              </Button>
-            ))}
-      </div>
+      {room.category === 'OUTPUT' && (
+        <OutputRoomTypeOptions onSelect={selectOutputRoomType} />
+      )}
       <OperatorGrid roomId={room.id} base={base} setBase={setBase} />
       <button
         type="button"

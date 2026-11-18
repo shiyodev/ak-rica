@@ -1,9 +1,6 @@
 import { getAvatarPath } from '@/utils/data-store'
 import { layout } from '@/data/index.gen'
-import {
-  baseColCount,
-  baseRowCount,
-} from '@/components/base/utils/baseDimensions'
+import { dimensions } from '@/components/base/utils/dimensions'
 import { useBase } from '@/components/base/hooks/useBase'
 
 const cellSize = 32
@@ -19,14 +16,14 @@ export function BaseGrid({
     <section
       className="grid auto-rows-12 p-2"
       style={{
-        gridTemplateColumns: `repeat(${baseColCount}, ${cellSize}px)`,
+        gridTemplateColumns: `repeat(${dimensions.colCount}, ${cellSize}px)`,
         gridAutoRows: `${cellSize}px`,
       }}
     >
       {Object.values(layout).map((cell) => {
         const slot = base[cell.id]
         const room = slot.isSelectable ? (slot.roomType ?? 'OUTPUT') : null
-        const rowPos = baseRowCount - cell.offset.row - cell.size.row
+        const rowPos = dimensions.rowCount - cell.offset.row - cell.size.row
 
         return (
           <div

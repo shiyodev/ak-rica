@@ -19,7 +19,7 @@ export function initBase() {
 /**
  * @returns The raw base layout
  */
-function getLayout(): BaseData {
+function getLayout() {
   const isFillerRoom = (room: LayoutSlot) =>
     ['ELEVATOR', 'CORRIDOR'].includes(room.category)
 
@@ -59,7 +59,7 @@ function getRoomType(room: LayoutSlot): RoomType | null {
  */
 function withUniqueRoomTypes(base: BaseData): BaseData {
   const updated = { ...base }
-  const functionRooms = {
+  const uniqueRooms = {
     slot_34: { roomType: 'CONTROL' },
     slot_36: { roomType: 'MEETING' },
     slot_32: { roomType: 'WORKSHOP' },
@@ -67,8 +67,8 @@ function withUniqueRoomTypes(base: BaseData): BaseData {
     slot_13: { roomType: 'TRAINING' },
   } satisfies Partial<Record<LayoutSlotId, Pick<BaseCell, 'roomType'>>>
 
-  for (const id of Object.keys(functionRooms) as (keyof typeof functionRooms)[])
-    updated[id] = { ...updated[id], ...functionRooms[id] }
+  for (const id of Object.keys(uniqueRooms) as (keyof typeof uniqueRooms)[])
+    updated[id] = { ...updated[id], ...uniqueRooms[id] }
 
   return updated
 }

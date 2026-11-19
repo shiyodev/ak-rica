@@ -9,7 +9,7 @@ function loadJSON(filename: string): unknown {
 }
 
 export const gamedata = {
-  fetch: {
+  load: {
     /** Returns all character data. */
     characterTable() {
       const raw = loadJSON('character_table.json')
@@ -20,15 +20,25 @@ export const gamedata = {
       const raw = loadJSON('building_data.json')
       return BuildingDataSchema.parse(raw)
     },
+  },
+  get: {
     /** Returns all character IDs registered in the in-game base. */
     characterIDs() {
-      const data = gamedata.fetch.buildingData()
+      const data = gamedata.load.buildingData()
       return Object.keys(data.chars)
     },
     /** Returns all unique buff icon IDs. */
     buffIconIDs() {
-      const data = gamedata.fetch.buildingData().buffs
+      const data = gamedata.load.buildingData().buffs
       return [...new Set(Object.values(data).map((buff) => buff.skillIcon))]
+    },
+    /** Returns all base grid cells. */
+    layoutSlots() {
+      const data = gamedata.load.buildingData().layouts
+      const latestVersion = Object.keys(data).reduce((latest, version) =>
+        Number(version.slice(1)) > Number(latest.slice(1)) ? version : latest,
+      )
+      return data[latestVersion].slots
     },
   },
 }

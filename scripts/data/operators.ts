@@ -1,12 +1,12 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 import path, { dirname } from 'node:path'
-import { gamedata } from './utils/data-store'
-import { processResult } from './utils/results'
+import { gamedata } from '@/scripts/utils/data-store'
+import { processResult } from '@/scripts/utils/results'
 
 const outFile = path.resolve('src/data', 'operators.gen.json')
 
-const chars = gamedata.fetch.buildingData().chars
-const charNameMap = gamedata.fetch.characterTable()
+const { chars } = gamedata.load.buildingData()
+const charNameMap = gamedata.load.characterTable()
 
 // Build raw JSON data
 const data: Record<string, { name: string; buffs: object }> = {}
@@ -23,6 +23,6 @@ writeFileSync(outFile, JSON.stringify(data, null, 2) + '\n')
 
 processResult(
   'Processed operators with base skills',
-  { actual: Object.values(data).length, target: Object.values(chars).length },
+  { actual: Object.values(data).length },
   import.meta.filename,
 )

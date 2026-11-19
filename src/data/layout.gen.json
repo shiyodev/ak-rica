@@ -1,0 +1,614 @@
+{
+  "slot_1": {
+    "id": "slot_1",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 0,
+      "col": 14
+    },
+    "category": "ELEVATOR"
+  },
+  "slot_2": {
+    "id": "slot_2",
+    "size": {
+      "row": 2,
+      "col": 2
+    },
+    "offset": {
+      "row": 0,
+      "col": 15
+    },
+    "category": "CORRIDOR"
+  },
+  "slot_3": {
+    "id": "slot_3",
+    "size": {
+      "row": 2,
+      "col": 6
+    },
+    "offset": {
+      "row": 0,
+      "col": 17
+    },
+    "category": "CUSTOM"
+  },
+  "slot_4": {
+    "id": "slot_4",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 0,
+      "col": 23
+    },
+    "category": "ELEVATOR"
+  },
+  "slot_5": {
+    "id": "slot_5",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "offset": {
+      "row": 2,
+      "col": 2
+    },
+    "category": "OUTPUT"
+  },
+  "slot_6": {
+    "id": "slot_6",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "offset": {
+      "row": 2,
+      "col": 6
+    },
+    "category": "OUTPUT"
+  },
+  "slot_7": {
+    "id": "slot_7",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "offset": {
+      "row": 2,
+      "col": 10
+    },
+    "category": "OUTPUT"
+  },
+  "slot_8": {
+    "id": "slot_8",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 2,
+      "col": 14
+    },
+    "category": "ELEVATOR"
+  },
+  "slot_9": {
+    "id": "slot_9",
+    "size": {
+      "row": 2,
+      "col": 6
+    },
+    "offset": {
+      "row": 2,
+      "col": 15
+    },
+    "category": "CUSTOM"
+  },
+  "slot_10": {
+    "id": "slot_10",
+    "size": {
+      "row": 2,
+      "col": 2
+    },
+    "offset": {
+      "row": 2,
+      "col": 21
+    },
+    "category": "CORRIDOR"
+  },
+  "slot_11": {
+    "id": "slot_11",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 2,
+      "col": 23
+    },
+    "category": "ELEVATOR"
+  },
+  "slot_12": {
+    "id": "slot_12",
+    "size": {
+      "row": 2,
+      "col": 2
+    },
+    "offset": {
+      "row": 2,
+      "col": 24
+    },
+    "category": "CORRIDOR"
+  },
+  "slot_13": {
+    "id": "slot_13",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "offset": {
+      "row": 2,
+      "col": 26
+    },
+    "category": "FUNCTION"
+  },
+  "slot_39": {
+    "id": "slot_39",
+    "size": {
+      "row": 2,
+      "col": 2
+    },
+    "offset": {
+      "row": 2,
+      "col": 30
+    },
+    "category": "CORRIDOR"
+  },
+  "slot_40": {
+    "id": "slot_40",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 2,
+      "col": 32
+    },
+    "category": "ELEVATOR"
+  },
+  "slot_41": {
+    "id": "slot_41",
+    "size": {
+      "row": 2,
+      "col": 6
+    },
+    "offset": {
+      "row": 2,
+      "col": 33
+    },
+    "category": "CUSTOM_P"
+  },
+  "slot_49": {
+    "id": "slot_49",
+    "size": {
+      "row": 2,
+      "col": 6
+    },
+    "offset": {
+      "row": 2,
+      "col": 39
+    },
+    "category": "CUSTOM_P"
+  },
+  "slot_14": {
+    "id": "slot_14",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "offset": {
+      "row": 4,
+      "col": 0
+    },
+    "category": "OUTPUT"
+  },
+  "slot_15": {
+    "id": "slot_15",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "offset": {
+      "row": 4,
+      "col": 4
+    },
+    "category": "OUTPUT"
+  },
+  "slot_16": {
+    "id": "slot_16",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "offset": {
+      "row": 4,
+      "col": 8
+    },
+    "category": "OUTPUT"
+  },
+  "slot_17": {
+    "id": "slot_17",
+    "size": {
+      "row": 2,
+      "col": 2
+    },
+    "offset": {
+      "row": 4,
+      "col": 12
+    },
+    "category": "CORRIDOR"
+  },
+  "slot_18": {
+    "id": "slot_18",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 4,
+      "col": 14
+    },
+    "category": "ELEVATOR"
+  },
+  "slot_19": {
+    "id": "slot_19",
+    "size": {
+      "row": 2,
+      "col": 2
+    },
+    "offset": {
+      "row": 4,
+      "col": 15
+    },
+    "category": "CORRIDOR"
+  },
+  "slot_20": {
+    "id": "slot_20",
+    "size": {
+      "row": 2,
+      "col": 6
+    },
+    "offset": {
+      "row": 4,
+      "col": 17
+    },
+    "category": "CUSTOM"
+  },
+  "slot_21": {
+    "id": "slot_21",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 4,
+      "col": 23
+    },
+    "category": "ELEVATOR"
+  },
+  "slot_22": {
+    "id": "slot_22",
+    "size": {
+      "row": 2,
+      "col": 2
+    },
+    "offset": {
+      "row": 4,
+      "col": 24
+    },
+    "category": "CORRIDOR"
+  },
+  "slot_23": {
+    "id": "slot_23",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "offset": {
+      "row": 4,
+      "col": 26
+    },
+    "category": "FUNCTION"
+  },
+  "slot_42": {
+    "id": "slot_42",
+    "size": {
+      "row": 2,
+      "col": 2
+    },
+    "offset": {
+      "row": 4,
+      "col": 30
+    },
+    "category": "CORRIDOR"
+  },
+  "slot_43": {
+    "id": "slot_43",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 4,
+      "col": 32
+    },
+    "category": "ELEVATOR"
+  },
+  "slot_44": {
+    "id": "slot_44",
+    "size": {
+      "row": 2,
+      "col": 6
+    },
+    "offset": {
+      "row": 4,
+      "col": 33
+    },
+    "category": "CUSTOM_P"
+  },
+  "slot_50": {
+    "id": "slot_50",
+    "size": {
+      "row": 2,
+      "col": 6
+    },
+    "offset": {
+      "row": 4,
+      "col": 39
+    },
+    "category": "CUSTOM_P"
+  },
+  "slot_24": {
+    "id": "slot_24",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "offset": {
+      "row": 6,
+      "col": 2
+    },
+    "category": "OUTPUT"
+  },
+  "slot_25": {
+    "id": "slot_25",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "offset": {
+      "row": 6,
+      "col": 6
+    },
+    "category": "OUTPUT"
+  },
+  "slot_26": {
+    "id": "slot_26",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "offset": {
+      "row": 6,
+      "col": 10
+    },
+    "category": "OUTPUT"
+  },
+  "slot_27": {
+    "id": "slot_27",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 6,
+      "col": 14
+    },
+    "category": "ELEVATOR"
+  },
+  "slot_28": {
+    "id": "slot_28",
+    "size": {
+      "row": 2,
+      "col": 6
+    },
+    "offset": {
+      "row": 6,
+      "col": 15
+    },
+    "category": "CUSTOM"
+  },
+  "slot_29": {
+    "id": "slot_29",
+    "size": {
+      "row": 2,
+      "col": 2
+    },
+    "offset": {
+      "row": 6,
+      "col": 21
+    },
+    "category": "CORRIDOR"
+  },
+  "slot_30": {
+    "id": "slot_30",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 6,
+      "col": 23
+    },
+    "category": "ELEVATOR"
+  },
+  "slot_31": {
+    "id": "slot_31",
+    "size": {
+      "row": 2,
+      "col": 2
+    },
+    "offset": {
+      "row": 6,
+      "col": 24
+    },
+    "category": "CORRIDOR"
+  },
+  "slot_32": {
+    "id": "slot_32",
+    "size": {
+      "row": 2,
+      "col": 4
+    },
+    "offset": {
+      "row": 6,
+      "col": 26
+    },
+    "category": "FUNCTION"
+  },
+  "slot_45": {
+    "id": "slot_45",
+    "size": {
+      "row": 2,
+      "col": 2
+    },
+    "offset": {
+      "row": 6,
+      "col": 30
+    },
+    "category": "CORRIDOR"
+  },
+  "slot_46": {
+    "id": "slot_46",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 6,
+      "col": 32
+    },
+    "category": "ELEVATOR"
+  },
+  "slot_47": {
+    "id": "slot_47",
+    "size": {
+      "row": 2,
+      "col": 6
+    },
+    "offset": {
+      "row": 6,
+      "col": 33
+    },
+    "category": "CUSTOM_P"
+  },
+  "slot_51": {
+    "id": "slot_51",
+    "size": {
+      "row": 2,
+      "col": 6
+    },
+    "offset": {
+      "row": 6,
+      "col": 39
+    },
+    "category": "CUSTOM_P"
+  },
+  "slot_33": {
+    "id": "slot_33",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 8,
+      "col": 14
+    },
+    "category": "ELEVATOR"
+  },
+  "slot_34": {
+    "id": "slot_34",
+    "size": {
+      "row": 4,
+      "col": 8
+    },
+    "offset": {
+      "row": 8,
+      "col": 15
+    },
+    "category": "SPECIAL"
+  },
+  "slot_35": {
+    "id": "slot_35",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 8,
+      "col": 23
+    },
+    "category": "ELEVATOR"
+  },
+  "slot_36": {
+    "id": "slot_36",
+    "size": {
+      "row": 2,
+      "col": 8
+    },
+    "offset": {
+      "row": 8,
+      "col": 24
+    },
+    "category": "FUNCTION"
+  },
+  "slot_48": {
+    "id": "slot_48",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 8,
+      "col": 32
+    },
+    "category": "ELEVATOR"
+  },
+  "slot_37": {
+    "id": "slot_37",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 10,
+      "col": 14
+    },
+    "category": "ELEVATOR"
+  },
+  "slot_38": {
+    "id": "slot_38",
+    "size": {
+      "row": 2,
+      "col": 1
+    },
+    "offset": {
+      "row": 10,
+      "col": 23
+    },
+    "category": "ELEVATOR"
+  }
+}

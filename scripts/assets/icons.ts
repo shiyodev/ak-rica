@@ -1,13 +1,13 @@
 import { mkdirSync, readdirSync, rmSync } from 'node:fs'
 import { copyFile } from 'node:fs/promises'
 import path from 'node:path'
-import { gamedata } from './utils/data-store'
-import { processResult } from './utils/results'
+import { gamedata } from '@/scripts/utils/data-store'
+import { processResult } from '@/scripts/utils/results'
 
 const srcDir = path.resolve('tmp/assets/skills')
 const destDir = path.resolve('src/assets/skills')
 
-const iconIDs = gamedata.fetch.buffIconIDs()
+const iconIDs = gamedata.get.buffIconIDs()
 const allIcons = readdirSync(srcDir)
 
 // Buff icons
@@ -31,3 +31,4 @@ processResult(
   { actual: readdirSync(destDir).length, target: iconIDs.length },
   import.meta.filename,
 )
+// TODO: expected buff icon IDs vs. copied icon filenames

@@ -31,24 +31,56 @@ export const BuildingDataSchema = z.object({
     z.object({
       buffId: z.string(),
       buffName: z.string(),
-      buffIcon: z.string(),
       skillIcon: z.string(),
-      sortId: z.number(),
-      buffColor: z.string(),
-      textColor: z.string(),
-      buffCategory: z.string(),
+      buffCategory: z.string(), //* Might be redundant
       roomType: z.string(),
       description: z.string(),
-      efficiency: z.number(),
-      targetGroupSortId: z.number(),
-      targets: z.array(z.number()).catch([]),
+      efficiency: z.number(), //* Might be redundant
+      targetGroupSortId: z.number(), //* Might be redundant
+      targets: z.array(z.string()).catch([]),
     }),
-  ), //* Those are all properties. not all of them might be needed
+  ),
+  rooms: z.record(
+    z.string(),
+    z.object({
+      id: z.string(),
+      name: z.string(),
+      description: z.string().nullable(),
+      defaultPrefabId: z.string(), //* Might be redundant
+      maxCount: z.number(),
+      category: z.string(),
+      size: z.object({
+        row: z.number(),
+        col: z.number(),
+      }),
+      phases: z.array(
+        z.object({
+          electricity: z.number(),
+          maxStationedNum: z.number(),
+          manpowerCost: z.number(), //* Might be redundant
+        }),
+      ),
+    }),
+  ),
+  layouts: z.record(
+    z.string(),
+    z.object({
+      slots: z.record(
+        z.string(),
+        z.object({
+          id: z.string(),
+          size: z.object({ row: z.number(), col: z.number() }),
+          offset: z.object({ row: z.number(), col: z.number() }),
+          category: z.string(),
+        }),
+      ),
+    }),
+  ),
 })
 
 export type ScriptResult = z.infer<typeof ScriptResultSchema>
 export const ScriptResultSchema = z.object({
-  status: z.string(),
+  status: z.enum(['🔵', '✅', '❌']),
   progress: z.string(),
   diff: z.number().or(z.string()),
   script: z.string(),

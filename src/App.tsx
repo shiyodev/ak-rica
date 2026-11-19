@@ -1,7 +1,7 @@
 import { BaseGrid } from '@/components/base/BaseGrid'
 import type { BaseCell } from '@/components/base/models/Base'
 import { GitHubButton } from '@/components/GitHubButton'
-import { CellInspector } from '@/components/inpector/RoomInspector'
+import { CellInspector } from '@/components/inpector/CellInspector'
 import { useState } from 'react'
 
 export default function App() {

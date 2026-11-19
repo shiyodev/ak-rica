@@ -17,7 +17,7 @@ export function initBase() {
 }
 
 /**
- * @returns The generic base layout
+ * @returns The raw base layout
  */
 function getLayout(): BaseData {
   const isFillerRoom = (room: LayoutSlot) =>
@@ -53,7 +53,7 @@ function getRoomType(room: LayoutSlot): RoomType | null {
 }
 
 /**
- * Assigns the room type of every function-category cell
+ * Assigns all unique room types
  * @param base The base data to be updated
  * @returns The updated base data
  */

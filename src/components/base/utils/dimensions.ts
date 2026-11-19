@@ -1,5 +1,8 @@
 import { layout } from '@/data/index.gen'
 
+/**
+ * Provides the column and row count of the base grid
+ */
 export const dimensions = Object.values(layout).reduce(
   (dimensions, cell) => ({
     colCount: Math.max(dimensions.colCount, cell.offset.col + cell.size.col),

@@ -1,7 +1,7 @@
 import { useBaseMutations } from '@/components/base/hooks/useBaseMutations'
 import type { BaseCell } from '@/components/base/models/Base'
-import { OperatorManagement } from '@/components/inpector/OperatorGrid'
-import { OutputRoomTypeOptions } from '@/components/inpector/RoomTypeOptions'
+import { OperatorManagement } from '@/components/inspector/OperatorGrid'
+import { OutputRoomTypeOptions } from '@/components/inspector/RoomTypeOptions'
 import { layout } from '@/data/index.gen'
 import { useEffect, useRef, type RefObject } from 'react'
 

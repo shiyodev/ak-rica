@@ -1,24 +1,24 @@
 import type {
-  BaseCell,
   BaseData,
+  CellId,
   RoomType,
 } from '@/components/base/models/Base'
 
 /**
  * Returns a copy of the base with the specified mutation
  * @param base The base object to copy from
- * @param cell The cell whose type shall be changed
+ * @param id The cell ID whose type shall be changed
  * @param roomType The rooms new type
  */
 export function setRoomType(
   base: BaseData,
-  cell: BaseCell,
+  id: CellId,
   roomType: RoomType,
 ): BaseData {
   return {
     ...base,
-    [cell.id]: {
-      ...base[cell.id],
+    [id]: {
+      ...base[id],
       roomType,
     },
   }
@@ -27,19 +27,19 @@ export function setRoomType(
 /**
  * Returns a copy of the base with the specified mutation
  * @param base The base object to copy from
- * @param cell The cell a new operator is assigned to
+ * @param cellId The cell a new operator is assigned to
  * @param operatorId The ID of the newly assigned operator
  */
 export function addOperator(
   base: BaseData,
-  cell: BaseCell,
+  cellId: CellId,
   operatorId: string,
 ): BaseData {
   return {
     ...base,
-    [cell.id]: {
-      ...base[cell.id],
-      operators: base[cell.id].operators.concat([operatorId]),
+    [cellId]: {
+      ...base[cellId],
+      operators: base[cellId].operators.concat([operatorId]),
     },
   }
 }
@@ -47,19 +47,19 @@ export function addOperator(
 /**
  * Returns a copy of the base with the specified mutation
  * @param base The base object to copy from
- * @param cell The cell a operator is removed from
+ * @param cellId The cell a operator is removed from
  * @param operatorId The ID of the removed operator
  */
 export function removeOperator(
   base: BaseData,
-  cell: BaseCell,
+  cellId: CellId,
   operatorId: string,
 ): BaseData {
   return {
     ...base,
-    [cell.id]: {
-      ...base[cell.id],
-      operators: base[cell.id].operators.filter((i) => i != operatorId),
+    [cellId]: {
+      ...base[cellId],
+      operators: base[cellId].operators.filter((i) => i != operatorId),
     },
   }
 }

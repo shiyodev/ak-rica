@@ -4,6 +4,7 @@ import type {
   LayoutSlot,
   RoomType,
   LayoutSlotId,
+  CellId,
 } from '@/components/base/models/Base'
 import { layout, rooms } from '@/data/index.gen'
 
@@ -49,7 +50,7 @@ function withUniqueRoomTypes(base: BaseData): BaseData {
     slot_32: { roomType: 'WORKSHOP' },
     slot_23: { roomType: 'HIRE' },
     slot_13: { roomType: 'TRAINING' },
-  } satisfies Partial<Record<LayoutSlotId, Pick<BaseCell, 'roomType'>>>
+  } satisfies Partial<Record<CellId, Pick<BaseCell, 'roomType'>>>
 
   for (const id of Object.keys(uniqueRooms) as (keyof typeof uniqueRooms)[])
     updated[id] = { ...updated[id], ...uniqueRooms[id] }

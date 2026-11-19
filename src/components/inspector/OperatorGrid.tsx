@@ -1,19 +1,19 @@
 import { useBase } from '@/components/base/hooks/useBase'
 import { useBaseMutations } from '@/components/base/hooks/useBaseMutations'
-import type { BaseCell } from '@/components/base/models/Base'
+import type { CellId } from '@/components/base/models/Base'
 import { avatars, getAvatarPath } from '@/utils/avatars'
 import { getFilestem } from '@/utils/utils'
 
 /**
  * Renders the management system for assigning operators to the given cell
  */
-export function OperatorManagement({ cell }: { cell: BaseCell }) {
+export function OperatorManagement({ cellId }: { cellId: CellId }) {
   return (
     <div className="h-[50vh] overflow-y-auto">
       Selection
-      <AssignedOperators cell={cell} />
+      <AssignedOperators cellId={cellId} />
       Operators
-      <AvailableOperators cell={cell} />
+      <AvailableOperators cellId={cellId} />
     </div>
   )
 }
@@ -22,20 +22,20 @@ export function OperatorManagement({ cell }: { cell: BaseCell }) {
  * Renders all to the given cell assigned opertor avatars.
  * Clicking an avatar removes them from the cell assignment.
  */
-function AssignedOperators({ cell }: { cell: BaseCell }) {
+function AssignedOperators({ cellId }: { cellId: CellId }) {
   const { base } = useBase()
   const { removeOperator } = useBaseMutations()
 
   return (
     <div className="grid gap-2 grid-cols-5">
-      {base[cell.id].operators.map((op) => (
+      {base[cellId].operators.map((op) => (
         <img
           key={op}
           src={getAvatarPath(op)}
           alt=""
           decoding="async"
           className="h-32 w-32 rounded"
-          onClick={() => removeOperator(cell, op)}
+          onClick={() => removeOperator(cellId, op)}
         />
       ))}
     </div>
@@ -46,7 +46,7 @@ function AssignedOperators({ cell }: { cell: BaseCell }) {
  * Renders a grid of all operator avatars.
  * Clicking on an avatar assigns the operator to the given cell.
  */
-function AvailableOperators({ cell }: { cell: BaseCell }) {
+function AvailableOperators({ cellId }: { cellId: CellId }) {
   const { addOperator } = useBaseMutations()
 
   return (
@@ -59,7 +59,7 @@ function AvailableOperators({ cell }: { cell: BaseCell }) {
           loading="lazy"
           decoding="async"
           className="h-32 w-32 rounded"
-          onClick={() => addOperator(cell, getFilestem(avatarPath))}
+          onClick={() => addOperator(cellId, getFilestem(avatarPath))}
         />
       ))}
     </div>

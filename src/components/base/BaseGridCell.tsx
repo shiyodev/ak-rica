@@ -1,21 +1,32 @@
-import type { BaseCell, LayoutSlot } from '@/components/base/models/Base'
+import { useBase } from '@/components/base/hooks/useBase'
+import type {
+  BaseCell,
+  CellId,
+  LayoutSlot,
+} from '@/components/base/models/Base'
 import { dimensions } from '@/components/base/utils/dimensions'
 import { getAvatarPath } from '@/utils/avatars'
 
 interface BaseGridCellProps {
-  cell: BaseCell
+  cellId: CellId
   slot: LayoutSlot
-  onCellSelect: (cell: BaseCell) => void
+  onCellSelect: (cellId: CellId) => void
 }
 
 /**
  * Renders the cell with the additional information contained in slot
  */
-export function BaseGridCell({ cell, slot, onCellSelect }: BaseGridCellProps) {
+export function BaseGridCell({
+  cellId,
+  slot,
+  onCellSelect,
+}: BaseGridCellProps) {
+  const { base } = useBase()
+  const cell = base[cellId]
   const rowPos = dimensions.rowCount - slot.offset.row - slot.size.row
 
   const cellClick = () => {
-    if (cell.isSelectable) onCellSelect(cell)
+    if (cell.isSelectable) onCellSelect(cellId)
   }
 
   return (

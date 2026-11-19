@@ -5,6 +5,7 @@ import { layout, rooms } from '@/data/index.gen'
  */
 export type LayoutSlot = (typeof layout)[keyof typeof layout]
 export type LayoutSlotId = keyof typeof layout
+export type CellId = LayoutSlotId
 
 /**
  * Possible RIIC room types.
@@ -21,7 +22,7 @@ export type RoomDefinition = (typeof rooms)[RoomType]
  * Runtime state of a grid cell.
  */
 export type BaseCell = {
-  id: LayoutSlotId
+  id: CellId
   roomType: RoomType | null
   isSelectable: boolean
   operators: string[]
@@ -30,4 +31,4 @@ export type BaseCell = {
 /**
  * Runtime state of every base grid cell.
  */
-export type BaseData = Record<LayoutSlotId, BaseCell>
+export type BaseData = Record<CellId, BaseCell>

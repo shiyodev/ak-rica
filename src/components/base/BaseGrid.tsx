@@ -1,12 +1,11 @@
 import { layout } from '@/data/index.gen'
 import { dimensions } from '@/components/base/utils/dimensions'
 import type {
-  BaseCell,
+  CellId,
   LayoutSlot,
   LayoutSlotId,
 } from '@/components/base/models/Base'
 import { BaseGridCell } from '@/components/base/BaseGridCell'
-import { useBase } from '@/components/base/hooks/useBase'
 
 const cellSize = 32
 
@@ -16,9 +15,8 @@ const cellSize = 32
 export function BaseGrid({
   onCellSelect,
 }: {
-  onCellSelect: (cell: BaseCell) => void
+  onCellSelect: (cellId: CellId) => void
 }) {
-  const { base } = useBase()
   const layoutEntries = Object.entries(layout) as [LayoutSlotId, LayoutSlot][]
 
   return (
@@ -32,7 +30,7 @@ export function BaseGrid({
       {layoutEntries.map(([id, slot]) => (
         <BaseGridCell
           key={id}
-          cell={base[id]}
+          cellId={id}
           slot={slot}
           onCellSelect={onCellSelect}
         />

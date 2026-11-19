@@ -1,5 +1,5 @@
 import { useBaseMutations } from '@/components/base/hooks/useBaseMutations'
-import type { BaseCell } from '@/components/base/models/Base'
+import type { CellId } from '@/components/base/models/Base'
 import { OperatorManagement } from '@/components/inspector/OperatorGrid'
 import { OutputRoomTypeOptions } from '@/components/inspector/RoomTypeOptions'
 import { layout } from '@/data/index.gen'
@@ -9,10 +9,10 @@ import { useEffect, useRef, type RefObject } from 'react'
  * Renders the inspector highlighting the information of the given cell
  */
 export function CellInspector({
-  cell,
+  cellId,
   onClose,
 }: {
-  cell: BaseCell | null
+  cellId: CellId | null
   onClose: VoidFunction
 }) {
   const dialogRef = useRef<HTMLDialogElement>(null)
@@ -20,10 +20,10 @@ export function CellInspector({
 
   useEffect(() => {
     const dialog = dialogRef.current
-    if (cell && dialog && !dialog.open) dialog.showModal()
-  }, [cell])
+    if (cellId && dialog && !dialog.open) dialog.showModal()
+  }, [cellId])
 
-  if (!cell) return null
+  if (!cellId) return null
   return (
     <dialog
       ref={dialogRef}
@@ -31,11 +31,11 @@ export function CellInspector({
       onClick={closeOnBackdropClick()}
       className="m-auto rounded-lg bg-zinc-900 p-6 text-foreground backdrop:bg-black/60"
     >
-      <h2 className="text-lg font-semibold">{cell.id}</h2>
-      {layout[cell.id].category === 'OUTPUT' && (
-        <OutputRoomTypeOptions onSelect={(type) => setRoomType(cell, type)} />
+      <h2 className="text-lg font-semibold">{cellId}</h2>
+      {layout[cellId].category === 'OUTPUT' && (
+        <OutputRoomTypeOptions onSelect={(type) => setRoomType(cellId, type)} />
       )}
-      <OperatorManagement cell={cell} />
+      <OperatorManagement cellId={cellId} />
       <CloseInspectorButton dialogRef={dialogRef} />
     </dialog>
   )

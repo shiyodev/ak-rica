@@ -1,5 +1,5 @@
 import { useBase } from '@/components/base/hooks/useBase'
-import type { BaseCell, RoomType } from '@/components/base/models/Base'
+import type { CellId, RoomType } from '@/components/base/models/Base'
 import {
   addOperator,
   removeOperator,
@@ -14,14 +14,14 @@ export function useBaseMutations() {
   const { setBase } = useBase()
 
   return {
-    setRoomType: (cell: BaseCell, type: RoomType) => {
-      setBase((base) => setRoomType(base, cell, type))
+    setRoomType: (cellId: CellId, type: RoomType) => {
+      setBase((base) => setRoomType(base, cellId, type))
     },
-    addOperator: (cell: BaseCell, operatorId: string) => {
-      setBase((base) => addOperator(base, cell, operatorId))
+    addOperator: (cellId: CellId, operatorId: string) => {
+      setBase((base) => addOperator(base, cellId, operatorId))
     },
-    removeOperator: (cell: BaseCell, operatorId: string) => {
-      setBase((base) => removeOperator(base, cell, operatorId))
+    removeOperator: (cellId: CellId, operatorId: string) => {
+      setBase((base) => removeOperator(base, cellId, operatorId))
     },
   }
 }

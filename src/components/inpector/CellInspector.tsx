@@ -1,6 +1,6 @@
 import { useBaseMutations } from '@/components/base/hooks/useBaseMutations'
 import type { BaseCell } from '@/components/base/models/Base'
-import { OperatorSelection } from '@/components/inpector/OperatorGrid'
+import { OperatorManagement } from '@/components/inpector/OperatorGrid'
 import { OutputRoomTypeOptions } from '@/components/inpector/RoomTypeOptions'
 import { layout } from '@/data/index.gen'
 import { useEffect, useRef, type RefObject } from 'react'
@@ -35,7 +35,7 @@ export function CellInspector({
       {layout[cell.id].category === 'OUTPUT' && (
         <OutputRoomTypeOptions onSelect={(type) => setRoomType(cell, type)} />
       )}
-      <OperatorSelection cell={cell} />
+      <OperatorManagement cell={cell} />
       <CloseInspectorButton dialogRef={dialogRef} />
     </dialog>
   )

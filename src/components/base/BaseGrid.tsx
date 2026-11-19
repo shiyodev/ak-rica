@@ -1,16 +1,22 @@
-import { getAvatarPath } from '@/utils/data-store'
+import { getAvatarPath } from '@/utils/avatars'
 import { layout } from '@/data/index.gen'
 import { dimensions } from '@/components/base/utils/dimensions'
 import { useBase } from '@/components/base/hooks/useBase'
+import type {
+  BaseCell,
+  LayoutSlot,
+  LayoutSlotId,
+} from '@/components/base/models/Base'
 
 const cellSize = 32
 
 export function BaseGrid({
-  onSelect,
+  onCellSelect,
 }: {
-  onSelect: (cell: (typeof layout)[keyof typeof layout]) => void
+  onCellSelect: (cell: BaseCell) => void
 }) {
   const { base } = useBase()
+  const layoutEntries = Object.entries(layout) as [LayoutSlotId, LayoutSlot][]
 
   return (
     <section
@@ -20,26 +26,26 @@ export function BaseGrid({
         gridAutoRows: `${cellSize}px`,
       }}
     >
-      {Object.values(layout).map((cell) => {
-        const slot = base[cell.id]
-        const room = slot.isSelectable ? (slot.roomType ?? 'OUTPUT') : null
-        const rowPos = dimensions.rowCount - cell.offset.row - cell.size.row
+      {layoutEntries.map(([id, slot]) => {
+        const cell = base[id]
+        const room = cell.isSelectable ? (cell.roomType ?? 'OUTPUT') : null
+        const rowPos = dimensions.rowCount - slot.offset.row - slot.size.row
 
         return (
           <div
-            key={cell.id}
+            key={slot.id}
             className="bg-blue-900 m-0.5"
             onClick={() => {
-              if (base[cell.id].isSelectable) onSelect(cell)
+              if (base[id].isSelectable) onCellSelect(base[id])
             }}
             style={{
-              gridColumn: `${cell.offset.col + 1} / span ${cell.size.col}`,
-              gridRow: `${rowPos + 1} / span ${cell.size.row}`,
+              gridColumn: `${slot.offset.col + 1} / span ${slot.size.col}`,
+              gridRow: `${rowPos + 1} / span ${slot.size.row}`,
             }}
           >
             {room}
             <div className="grid gap-1 grid-cols-5">
-              {base[cell.id].operators.map((op) => (
+              {base[id].operators.map((op) => (
                 <img
                   key={op}
                   src={getAvatarPath(op)}

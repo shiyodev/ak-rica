@@ -1,13 +1,13 @@
-import type { BaseData } from '@/components/base/models/Base'
-import { avatars, getAvatarPath } from '@/utils/data-store'
+import type { BaseCell, BaseData } from '@/components/base/models/Base'
+import { avatars, getAvatarPath } from '@/utils/avatars'
 import { getFilestem } from '@/utils/utils'
 
 export function OperatorGrid({
-  roomId,
+  cell,
   base,
   setBase,
 }: {
-  roomId: string
+  cell: BaseCell
   base: BaseData
   setBase: (base: BaseData) => void
 }) {
@@ -15,7 +15,7 @@ export function OperatorGrid({
     <div className="h-[50vh] overflow-y-auto">
       Selection
       <div className="grid gap-2 grid-cols-5">
-        {base[roomId].operators.map((op) => (
+        {base[cell.id].operators.map((op) => (
           <img
             key={op}
             src={getAvatarPath(op)}
@@ -25,9 +25,9 @@ export function OperatorGrid({
             onClick={() =>
               setBase({
                 ...base,
-                [roomId]: {
-                  ...base[roomId],
-                  operators: base[roomId].operators.filter((i) => i != op),
+                [cell.id]: {
+                  ...base[cell.id],
+                  operators: base[cell.id].operators.filter((i) => i != op),
                 },
               })
             }
@@ -47,10 +47,10 @@ export function OperatorGrid({
             onClick={() =>
               setBase({
                 ...base,
-                [roomId]: {
-                  ...base[roomId],
+                [cell.id]: {
+                  ...base[cell.id],
                   operators: [
-                    ...base[roomId].operators,
+                    ...base[cell.id].operators,
                     getFilestem(avatarPath),
                   ],
                 },

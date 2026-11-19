@@ -4,7 +4,7 @@ import { layout, rooms } from '@/data/index.gen'
  * Static grid cell information (size, position, category).
  */
 export type LayoutSlot = (typeof layout)[keyof typeof layout]
-type LayoutSlotId = LayoutSlot['id']
+export type LayoutSlotId = keyof typeof layout
 
 /**
  * Possible RIIC room types.

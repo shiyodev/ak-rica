@@ -3,6 +3,7 @@ import type {
   BaseCell,
   LayoutSlot,
   RoomType,
+  LayoutSlotId,
 } from '@/components/base/models/Base'
 import { layout, rooms } from '@/data/index.gen'
 
@@ -22,16 +23,17 @@ function getLayout(): BaseData {
   const isFillerRoom = (room: LayoutSlot) =>
     ['ELEVATOR', 'CORRIDOR'].includes(room.category)
 
-  return Object.fromEntries(
-    Object.values(layout).map((room) => [
-      room.id,
-      {
-        roomType: getRoomType(room),
-        isSelectable: !isFillerRoom(room),
-        operators: [],
-      } satisfies BaseCell,
-    ]),
-  )
+  const base = {} as BaseData
+  const layoutEntries = Object.entries(layout) as [LayoutSlotId, LayoutSlot][]
+
+  for (const [id, slot] of layoutEntries)
+    base[id] = {
+      id,
+      roomType: getRoomType(slot),
+      isSelectable: !isFillerRoom(slot),
+      operators: [],
+    }
+  return base
 }
 
 //? Checks 3 different sources where the room type may be defined because the gamedata is weird
@@ -63,10 +65,10 @@ function withUniqueRoomTypes(base: BaseData): BaseData {
     slot_32: { roomType: 'WORKSHOP' },
     slot_23: { roomType: 'HIRE' },
     slot_13: { roomType: 'TRAINING' },
-  } satisfies Record<string, Partial<BaseCell>>
+  } satisfies Partial<Record<LayoutSlotId, Pick<BaseCell, 'roomType'>>>
 
-  for (const [id, roomType] of Object.entries(functionRooms))
-    updated[id] = { ...updated[id], ...roomType }
+  for (const id of Object.keys(functionRooms) as (keyof typeof functionRooms)[])
+    updated[id] = { ...updated[id], ...functionRooms[id] }
 
   return updated
 }

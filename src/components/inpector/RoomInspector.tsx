@@ -1,15 +1,16 @@
 import { useBase } from '@/components/base/hooks/useBase'
 import { useBaseMutations } from '@/components/base/hooks/useBaseMutations'
-import type { LayoutSlot } from '@/components/base/models/Base'
+import type { BaseCell } from '@/components/base/models/Base'
 import { OperatorGrid } from '@/components/inpector/OperatorGrid'
 import { OutputRoomTypeOptions } from '@/components/inpector/RoomTypeOptions'
+import { layout } from '@/data/index.gen'
 import { useEffect, useRef } from 'react'
 
-export function RoomInspector({
-  room,
+export function CellInspector({
+  cell,
   onClose,
 }: {
-  room: LayoutSlot | null
+  cell: BaseCell | null
   onClose: VoidFunction
 }) {
   const dialogRef = useRef<HTMLDialogElement>(null)
@@ -18,10 +19,10 @@ export function RoomInspector({
 
   useEffect(() => {
     const dialog = dialogRef.current
-    if (room) dialog?.showModal()
-  }, [room])
+    if (cell) dialog?.showModal()
+  }, [cell])
 
-  if (!room) return null
+  if (!cell) return null
   return (
     <dialog
       ref={dialogRef}
@@ -33,11 +34,11 @@ export function RoomInspector({
       }}
       className="m-auto rounded-lg bg-zinc-900 p-6 text-foreground backdrop:bg-black/60"
     >
-      <h2 className="text-lg font-semibold">{room.id}</h2>
-      {room.category === 'OUTPUT' && (
-        <OutputRoomTypeOptions onSelect={(type) => setRoomType(room, type)} />
+      <h2 className="text-lg font-semibold">{cell.id}</h2>
+      {layout[cell.id].category === 'OUTPUT' && (
+        <OutputRoomTypeOptions onSelect={(type) => setRoomType(cell, type)} />
       )}
-      <OperatorGrid roomId={room.id} base={base} setBase={setBase} />
+      <OperatorGrid cell={cell} base={base} setBase={setBase} />
       <button
         type="button"
         onClick={() => dialogRef.current?.close()}

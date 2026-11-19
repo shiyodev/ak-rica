@@ -1,19 +1,17 @@
 import { BaseGrid } from '@/components/base/BaseGrid'
+import type { BaseCell } from '@/components/base/models/Base'
 import { GitHubButton } from '@/components/GitHubButton'
-import { RoomInspector } from '@/components/inpector/RoomInspector'
-import { layout } from '@/data/index.gen'
+import { CellInspector } from '@/components/inpector/RoomInspector'
 import { useState } from 'react'
 
 export default function App() {
-  const [room, setRoom] = useState<(typeof layout)[keyof typeof layout] | null>(
-    null,
-  )
+  const [selectedCell, setSelectedCell] = useState<BaseCell | null>(null)
 
   return (
     <main className="dark min-h-screen bg-background text-foreground">
       <GitHubButton />
-      <BaseGrid onSelect={setRoom} />
-      <RoomInspector room={room} onClose={() => setRoom(null)} />
+      <BaseGrid onCellSelect={setSelectedCell} />
+      <CellInspector cell={selectedCell} onClose={() => setSelectedCell(null)} />
     </main>
   )
 }

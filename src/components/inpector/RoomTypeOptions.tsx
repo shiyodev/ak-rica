@@ -7,7 +7,7 @@ const outputRoomTypes = (Object.keys(rooms) as RoomType[]).filter(
 )
 
 /**
- * Renders the selection of output room types
+ * Renders the options of output room types to select
  */
 export function OutputRoomTypeOptions({
   onSelect,

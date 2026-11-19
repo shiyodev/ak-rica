@@ -1,8 +1,4 @@
-import type {
-  BaseData,
-  CellId,
-  RoomType,
-} from '@/components/base/models/Base'
+import type { BaseData, CellId, RoomType } from '@/components/base/models/Base'
 
 /**
  * Returns a copy of the base with the specified mutation

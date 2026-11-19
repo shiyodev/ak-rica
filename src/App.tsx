@@ -11,7 +11,10 @@ export default function App() {
     <main className="dark min-h-screen bg-background text-foreground">
       <GitHubButton />
       <BaseGrid onCellSelect={setSelectedCellId} />
-      <CellInspector cellId={selectedCellId} onClose={() => setSelectedCellId(null)} />
+      <CellInspector
+        cellId={selectedCellId}
+        onClose={() => setSelectedCellId(null)}
+      />
     </main>
   )
 }

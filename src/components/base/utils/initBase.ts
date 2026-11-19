@@ -60,17 +60,17 @@ function withUniqueRoomTypes(base: BaseData): BaseData {
 //#region Helpers
 //? Checks 3 different sources where the room type may be defined because the gamedata is weird
 //! Order of checks + returns is important; dont change
-function getRoomType(room: LayoutSlot): RoomType | null {
+function getRoomType(slot: LayoutSlot): RoomType | null {
   const isRoomType = (value: string): value is RoomType =>
     Object.keys(rooms).includes(value)
 
-  const { category } = room
+  const { category } = slot
   if (isRoomType(category)) return category // ELEVATOR + CORRIDOR
 
   const matchingRooms = Object.values(rooms).filter(
     (room) => room.category === category,
   )
-  if (matchingRooms.length !== 1) return null // OUTPUT + FUNCTION + SPECIAL(CC)
+  if (matchingRooms.length !== 1) return null // OUTPUT + FUNCTION + SPECIAL
   return isRoomType(matchingRooms[0].id) ? matchingRooms[0].id : null // DORMITORY + PRIVATE
 }
 //#endregion
